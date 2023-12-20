@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RickAndMorty</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- /////////////////////// MENU -->
+    <div class="menu-container">
+      <button class="button" name="episodes">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="1.5em" viewBox="0 0 24 24" stroke-width="1"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" />
+          <path d="M10 9l5 3l-5 3z" />
+        </svg>
+        <span class="tooltip">Episodes</span>
+      </button>
+
+      <button class="button" name="characters">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="1.5em"
+          viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+          <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+        </svg>
+        <span class="tooltip">Characters</span>
+
+      </button>
+
+      <button class="button" name="locations">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin-2" width="1.5em"
+          viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7" />
+          <path d="M9 4v13" />
+          <path d="M15 7v5" />
+          <path
+            d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z" />
+          <path d="M19 18v.01" />
+        </svg>
+        <span class="tooltip">Location</span>
+      </button>
+    </div>
+
+    <!-- //////////////// HEADER ///////////////////// -->
+    <header class="header">
+      <img src="./src/img/Rick-and-Morty-15-12-2023.png" alt="">
+      <!-- <div class="header-icons">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="100" viewBox="0 0 48 48">
+          <path fill="#81d4fa"
+            d="M47,19l-1.5,0c-0.2,0-0.4,0-0.6,0c-2.8,0-4.5-0.5-5.6-0.8c0.5-1.7,1.9-4.9,3.8-7.4l1-1.3l-1.6-0.3 C41.5,9.1,40.6,9,39.6,9c-2.3,0-4.6,0.2-5.9,0.6C33.6,8.3,33,5.8,33,3V2h-1c-2.5,0-6.3,2.8-7.9,4c-1.7-1.6-5.6-5.1-8-5.1L16,1l-1,0 v1c0,3.1-0.5,5.7-0.8,7c-1.5-0.1-4.5,0-7.8-0.7L5,8l0.2,1.4c0.7,4.3,2.2,7.4,3.2,9c-1.6,0.5-3.6,1.7-6.4,3.8L1,23.1l1.1,0.8 c1.6,1.1,2.7,1.9,3.6,2.5c1,0.6,1,1,1.8,1.7c-2.2,2-4,3.1-4.1,3.1L2.1,32l1.4,0.9L8,35.5c-0.1,0.6-0.4,1.6-0.7,3.9L7,41c0,0,6-1,9-3 h16c0.9,0.4,4,3,6.8,3H40l-0.3-1.2c-0.4-1.7-0.6-2.7-0.7-3.3c1.4-0.9,5.4-3.4,6.4-5.5L46,30l-1.1-0.3c-1.1-0.3-2.6-1-3.4-1.6 c1.4-1.3,3.6-4.1,5-7.6L47,19z">
+          </path>
+          <path fill="#bcaaa4" d="M35 28A4 4 0 1 0 35 36 4 4 0 1 0 35 28zM13 28A4 4 0 1 0 13 36 4 4 0 1 0 13 28z">
+          </path>
+          <path fill="#d7ccc8"
+            d="M24,11c-6.1,0-11,5.4-11,13.2v9.5C13,41.6,17.9,47,24,47s11-5.4,11-13.2v-9.5C35,16.4,30.1,11,24,11z">
+          </path>
+          <path fill="#43a047"
+            d="M25.1,37h-5.3H19v0.9c0,1.2,0.5,2.5,1.6,2.7c0.1,1.2,0.7,2.4,1.9,2.4c1.2,0,1.8-1.2,2-2.4 c0.7-0.2,1.5-0.9,1.5-2.7V37H25.1z">
+          </path>
+          <path fill="#8d6e63"
+            d="M17,39c-0.4,0-0.8-0.3-0.9-0.7c-0.2-0.5,0.1-1.1,0.6-1.3c0.1,0,3.2-1.1,7.3-1.1c4.1,0,7.2,1,7.3,1.1 c0.5,0.2,0.8,0.7,0.6,1.3c-0.2,0.5-0.7,0.8-1.3,0.6c0,0-2.9-0.9-6.7-0.9c-3.8,0-6.7,0.9-6.7,0.9C17.2,39,17.1,39,17,39z">
+          </path>
+          <path fill="#efebe9" d="M22,26v4.5c0,1.1,0.1,4.5,2,4.5s2-3.4,2-4.5V26H22z"></path>
+          <path fill="#fafafa" d="M28.5 21A4.5 4.5 0 1 0 28.5 30A4.5 4.5 0 1 0 28.5 21Z"></path>
+          <path fill="#fafafa" d="M19.5 21A4.5 4.5 0 1 0 19.5 30A4.5 4.5 0 1 0 19.5 21Z"></path>
+          <g>
+            <path fill="#212121" d="M29 24A1 1 0 1 0 29 26 1 1 0 1 0 29 24zM19 25A1 1 0 1 0 19 27 1 1 0 1 0 19 25z">
+            </path>
+          </g>
+          <g>
+            <path fill="#64b5f6"
+              d="M24,22c-1.4,0-2.6-0.3-3.7-0.6c-0.5-0.1-1.1-0.3-1.5-0.3c-1.6-0.2-2.6,0-2.6,0 c-0.5,0.1-1.1-0.2-1.2-0.7c-0.1-0.5,0.2-1,0.7-1.2c0.1,0,1.4-0.3,3.4,0c0.5,0.1,1.1,0.2,1.7,0.4c1,0.3,2,0.5,3.1,0.5 s2.1-0.3,3.1-0.5c0.6-0.2,1.2-0.3,1.7-0.4c2-0.3,3.3,0,3.4,0c0.5,0.1,0.9,0.6,0.7,1.2c-0.1,0.5-0.7,0.8-1.2,0.7c0,0-1-0.2-2.6,0 c-0.4,0.1-0.9,0.2-1.5,0.3C26.6,21.7,25.4,22,24,22z">
+            </path>
+          </g>
+        </svg>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="70" height="100" viewBox="0 0 48 48">
+          <path fill="#6d4c41"
+            d="M24,3c11.046,0,20,8.954,20,20s-8.954,20-20,20S4,34.046,4,23c0-6,3-8,3-8C9,6,15.787,3,24,3z">
+          </path>
+          <path fill="#ffd391"
+            d="M38.5 28A4.5 4.5 0 1 0 38.5 37 4.5 4.5 0 1 0 38.5 28zM9.5 28A4.5 4.5 0 1 0 9.5 37 4.5 4.5 0 1 0 9.5 28z">
+          </path>
+          <path fill="#ffd391" d="M24 12A17 17 0 1 0 24 46A17 17 0 1 0 24 12Z"></path>
+          <path fill="#bf360c"
+            d="M27.935,40.426C27.623,39.293,25.987,38,24,38s-3.623,1.293-3.935,2.426 C20.026,40.544,20,40.669,20,40.8c0,0.663,0.537,1.2,1.2,1.2c0.8,0,1.2-1,2.8-1s2,1,2.8,1c0.663,0,1.2-0.537,1.2-1.2 C28,40.669,27.974,40.544,27.935,40.426z">
+          </path>
+          <path fill="#fcf5ea"
+            d="M25.41,35.41C25.02,35.8,24.51,36,24,36s-1.02-0.2-1.41-0.59l-1.5-1.5l2.82-2.82l1.5,1.5 C26.2,33.37,26.2,34.63,25.41,35.41z">
+          </path>
+          <g>
+            <path fill="#fafafa" d="M32 22A6 6 0 1 0 32 34 6 6 0 1 0 32 22zM16 22A6 6 0 1 0 16 34 6 6 0 1 0 16 22z">
+            </path>
+          </g>
+          <g>
+            <path fill="#212121" d="M32 28A1 1 0 1 0 32 30 1 1 0 1 0 32 28zM16 28A1 1 0 1 0 16 30 1 1 0 1 0 16 28z">
+            </path>
+          </g>
+        </svg>
+      </div> -->
+    </header>
+    <!-- ///////////////////////// SEARCHBAR //////////77 -->
+
+    <div class="searchbar-container">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon-rick-searchbar" x="0px" y="0px" width="80" height="100"
+        viewBox="0 0 48 48">
+        <path fill="#81d4fa"
+          d="M47,19l-1.5,0c-0.2,0-0.4,0-0.6,0c-2.8,0-4.5-0.5-5.6-0.8c0.5-1.7,1.9-4.9,3.8-7.4l1-1.3l-1.6-0.3 C41.5,9.1,40.6,9,39.6,9c-2.3,0-4.6,0.2-5.9,0.6C33.6,8.3,33,5.8,33,3V2h-1c-2.5,0-6.3,2.8-7.9,4c-1.7-1.6-5.6-5.1-8-5.1L16,1l-1,0 v1c0,3.1-0.5,5.7-0.8,7c-1.5-0.1-4.5,0-7.8-0.7L5,8l0.2,1.4c0.7,4.3,2.2,7.4,3.2,9c-1.6,0.5-3.6,1.7-6.4,3.8L1,23.1l1.1,0.8 c1.6,1.1,2.7,1.9,3.6,2.5c1,0.6,1,1,1.8,1.7c-2.2,2-4,3.1-4.1,3.1L2.1,32l1.4,0.9L8,35.5c-0.1,0.6-0.4,1.6-0.7,3.9L7,41c0,0,6-1,9-3 h16c0.9,0.4,4,3,6.8,3H40l-0.3-1.2c-0.4-1.7-0.6-2.7-0.7-3.3c1.4-0.9,5.4-3.4,6.4-5.5L46,30l-1.1-0.3c-1.1-0.3-2.6-1-3.4-1.6 c1.4-1.3,3.6-4.1,5-7.6L47,19z">
+        </path>
+        <path fill="#bcaaa4" d="M35 28A4 4 0 1 0 35 36 4 4 0 1 0 35 28zM13 28A4 4 0 1 0 13 36 4 4 0 1 0 13 28z"></path>
+        <path fill="#d7ccc8"
+          d="M24,11c-6.1,0-11,5.4-11,13.2v9.5C13,41.6,17.9,47,24,47s11-5.4,11-13.2v-9.5C35,16.4,30.1,11,24,11z"></path>
+        <path fill="#43a047"
+          d="M25.1,37h-5.3H19v0.9c0,1.2,0.5,2.5,1.6,2.7c0.1,1.2,0.7,2.4,1.9,2.4c1.2,0,1.8-1.2,2-2.4 c0.7-0.2,1.5-0.9,1.5-2.7V37H25.1z">
+        </path>
+        <path fill="#8d6e63"
+          d="M17,39c-0.4,0-0.8-0.3-0.9-0.7c-0.2-0.5,0.1-1.1,0.6-1.3c0.1,0,3.2-1.1,7.3-1.1c4.1,0,7.2,1,7.3,1.1 c0.5,0.2,0.8,0.7,0.6,1.3c-0.2,0.5-0.7,0.8-1.3,0.6c0,0-2.9-0.9-6.7-0.9c-3.8,0-6.7,0.9-6.7,0.9C17.2,39,17.1,39,17,39z">
+        </path>
+        <path fill="#efebe9" d="M22,26v4.5c0,1.1,0.1,4.5,2,4.5s2-3.4,2-4.5V26H22z"></path>
+        <path fill="#fafafa" d="M28.5 21A4.5 4.5 0 1 0 28.5 30A4.5 4.5 0 1 0 28.5 21Z"></path>
+        <path fill="#fafafa" d="M19.5 21A4.5 4.5 0 1 0 19.5 30A4.5 4.5 0 1 0 19.5 21Z"></path>
+        <g>
+          <path fill="#212121" d="M29 24A1 1 0 1 0 29 26 1 1 0 1 0 29 24zM19 25A1 1 0 1 0 19 27 1 1 0 1 0 19 25z">
+          </path>
+        </g>
+        <g>
+          <path fill="#64b5f6"
+            d="M24,22c-1.4,0-2.6-0.3-3.7-0.6c-0.5-0.1-1.1-0.3-1.5-0.3c-1.6-0.2-2.6,0-2.6,0 c-0.5,0.1-1.1-0.2-1.2-0.7c-0.1-0.5,0.2-1,0.7-1.2c0.1,0,1.4-0.3,3.4,0c0.5,0.1,1.1,0.2,1.7,0.4c1,0.3,2,0.5,3.1,0.5 s2.1-0.3,3.1-0.5c0.6-0.2,1.2-0.3,1.7-0.4c2-0.3,3.3,0,3.4,0c0.5,0.1,0.9,0.6,0.7,1.2c-0.1,0.5-0.7,0.8-1.2,0.7c0,0-1-0.2-2.6,0 c-0.4,0.1-0.9,0.2-1.5,0.3C26.6,21.7,25.4,22,24,22z">
+          </path>
+        </g>
+      </svg>
+      <svg class="icon-searchbar" aria-hidden="true" viewBox="0 0 24 24">
+        <g>
+          <path
+            d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+          </path>
+        </g>
+      </svg>
+      <input placeholder="Search by id" type="search" class="input">
+    </div>
+
+
+
+
+
+    <!--  //////////////////////////////////////////Character Pagination component -->
+    <section id="charactersPagination" class="hide-section">
+      <div class="container ">
+        <ul class="pagination" id="characterPage" onclick="changeCharPage(this.value)">
+          <li>
+            <a href="#">Prev</a>
+          </li>
+          <li>
+            <a href="#" value="1">1</a>
+          </li>
+          <li>
+            <a href="#" value="2">2</a>
+          </li>
+          <li>
+            <a href="#" value="3">3</a>
+          </li>
+          <li>
+            <a href="#" value="4">4</a>
+          </li>
+          <li>
+            <a href="#" value="5">5</a>
+          </li>
+          <li>
+            <a href="#" value="6">6</a>
+          </li>
+          <li>
+            <a href="#" value="7">7</a>
+          </li>
+          <li>
+            <a href="#" value="8">8</a>
+          </li>
+          <li>
+            <a href="#" value="9">9</a>
+          </li>
+          <li>
+            <a href="#" value="10">10</a>
+          </li>
+          <li>
+            <a href="#" value="11">11</a>
+          </li>
+          <li>
+            <a href="#" value="12">12</a>
+          </li>
+          <li>
+            <a href="#" value="13">13</a>
+          </li>
+          <li>
+            <a href="#" value="14">14</a>
+          </li>
+          <li>
+            <a href="#" value="15">15</a>
+          </li>
+          <li>
+            <a href="#" value="16">16</a>
+          </li>
+          <li>
+            <a href="#" value="17">17</a>
+          </li>
+          <li>
+            <a href="#" value="18">18</a>
+          </li>
+          <li>
+            <a href="#" value="19">19</a>
+          </li>
+          <li>
+            <a href="#" value="20">20</a>
+          </li>
+          <li>
+            <a href="#">Next</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- //////////////////// Characters  //////////////////// -->
+    <main id="charactersSection" class="hide-section">
+      <section class="characters-container " id="charContainer">
+        <div id="characters" class="characters myCardCharacter">
+
+        </div>
+
+      </section>
+    </main>
+
+
+    <!-- ///////////////////////////// EPISODES PAGINATION ///////// -->
+    <section id="episodesPagination" class="hide-section">
+      <div class="container ">
+        <ul class="pagination" id="episodePage" onclick="changeEpisodePage(this.value)">
+          <li>
+            <a href="#"> Prev </a>
+          </li>
+          <li>
+            <a href="#" value="1">1</a>
+          </li>
+          <li>
+            <a href="#" value="2">2</a>
+          </li>
+          <li>
+            <a href="#" value="3">3</a>
+          </li>
+          <li>
+            <a href="#">Next </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ////////////////////////////// Episodes ///////////////// -->
+    <main id="episodesSection" class="hide-section">
+      <div id="episodes" class="episodes myCardEpisode">
+
+      </div>
+
+    </main>
+
+
+    <!-- //////////////////////////// Location Pagination -->
+    <section id="locationPagination" class="hide-section">
+      <div class="container ">
+        <ul class="pagination" id="locationPage" onclick="changeLocationPage(this.value)">
+          <li>
+            <a href="#"> Prev </a>
+          </li>
+          <li>
+            <a href="#" value="1">1</a>
+          </li>
+          <li>
+            <a href="#" value="2">2</a>
+          </li>
+          <li>
+            <a href="#" value="3">3</a>
+          </li>
+          <li>
+            <a href="#" value="4">4</a>
+          </li>
+          <li>
+            <a href="#" value="5">5</a>
+          </li>
+          <li>
+            <a href="#" value="6">6</a>
+          </li>
+          <li>
+            <a href="#" value="7">7</a>
+          </li>
+          <li>
+            <a href="#">Next </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ///////////////////////////// Locations ////////////// -->
+    <main id="locationSection" class="hide-section">
+      <div id="locations" class="locations myCardLocation">
+
+      </div>
+
+    </main>
+  </div>
+
+  <script type="module" src="/src/app.ts"></script>
+</body>
+
+</html>
