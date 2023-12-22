@@ -15,7 +15,7 @@ export async function changeCharPage(page: number) {
         const characterImage = character.image
 
         const nameCharElement = document.createElement('h3');
-        nameCharElement.textContent = characterName
+        nameCharElement.textContent = characterName;
 
         const statusCharElement = document.createElement('p');
         statusCharElement.textContent = 'Status: ' + charStatus;

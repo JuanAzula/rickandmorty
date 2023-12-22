@@ -158,17 +158,15 @@ body {
 /* //////////////////// MENU  /////////////////////////////////////////7*/
 .menu-container {
     position: fixed;
-    margin-left: 42%;
+    margin-left: 37.9%;
     top: 0;
     display: flex;
     background-color: rgba(255, 255, 255, 0.05);
-    width: 250px;
-    height: 40px;
+    width: 25%;
+    height: 7%;
     align-items: center;
     justify-content: space-around;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px,
-        rgba(122, 122, 122, 0.5) 5px 10px 15px;
     z-index: 999;
 }
 
@@ -278,20 +276,22 @@ body {
     display: flex;
     line-height: 28px;
     align-items: center;
+    justify-content: center;
     position: sticky;
     /* top: 20%; */
-    max-width: 190px;
+    width: 100%;
     height: 100px;
-    margin-left: 44%;
+    /* margin-left: 44%; */
     /* z-index: 999; */
 }
 
 .input {
-    height: 40px;
+    height: 80px;
+    width: 30%;
     line-height: 28px;
     padding: 0 1rem;
-    width: 100%;
-    padding-left: 2.5rem;
+    font-size: 24px;
+    padding-left: 10%;
     border: 2px solid transparent;
     border-radius: 8px;
     outline: none;
@@ -307,20 +307,21 @@ body {
     color: rgb(235, 233, 233);
 }
 
-.icon-searchbar {
+/* .icon-searchbar {
     position: absolute;
-    left: 1rem;
-    fill: rgb(235, 233, 233);
-    width: 1rem;
-    height: 1rem;
-}
+    /* left: 1rem; */
+/* fill: rgb(235, 233, 233);
+width: 1rem;
+height: 1rem;
+
+}*/
 
 .icon-rick-searchbar {
     position: absolute;
-    left: 7.55rem;
+    left: 73.55rem;
     fill: rgb(235, 233, 233);
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 /* //////////////////////////////// CARDS */
@@ -462,17 +463,17 @@ body {
     }
 
     .innerCard {
-        color: rgb(207, 207, 207);
+        color: rgb(255, 255, 255);
         background: linear-gradient(-45deg, #1cff4d 0%, #605a55 100%);
     }
 
     .innerCardLocation {
-        color: rgb(207, 207, 207);
+        color: rgb(255, 255, 255);
         background: linear-gradient(-45deg, #1cff4d 0%, #605a55 100%);
     }
 
     .innerCardEpisode {
-        color: rgb(207, 207, 207);
+        color: rgb(255, 255, 255);
         background: linear-gradient(-45deg, #1cff4d 0%, #605a55 100%);
     }
 
@@ -499,6 +500,16 @@ body {
     .container .pagination li a {
         padding: 20px 15px;
     }
+
+    .input {
+        padding-left: 6%;
+        font-size: 20px;
+    }
+
+    .icon-rick-searchbar {
+        position: absolute;
+        left: 37.55rem;
+    }
 }
 
 @media(max-width:1000px) {
@@ -518,7 +529,7 @@ body {
     }
 
     .menu-container {
-        margin-left: 34%;
+        margin-left: 37%;
     }
 
     .character h3 {
@@ -538,10 +549,6 @@ body {
     .innerCardEpisode {
         color: rgb(155, 244, 145);
         background: linear-gradient(-45deg, #38ba3a 0%, #1f213f 100%);
-    }
-
-    .searchbar-container {
-        margin-left: 33%;
     }
 
     .myCardEpisode {
@@ -585,19 +592,38 @@ body {
     .container .pagination li a {
         padding: 1px 15px;
     }
+
+    .input {
+        padding-left: 3%;
+        margin-left: 0;
+        font-size: 20px;
+    }
+
+    .icon-rick-searchbar {
+        position: absolute;
+        left: 30.95rem;
+        height: 2.2rem;
+    }
 }
 
 
 
 @media(max-width:600px) {
     .header img {
-        margin-top: 5%;
-        height: 130px;
-        size: 50px;
+        margin-top: 12%;
+        margin-left: 1.7%;
+        height: 100px;
+        size: 80px;
+    }
+
+    .menu-container {
+        width: 38%;
+        margin-left: 31%;
     }
 
     .searchbar-container {
-        margin-left: 28%;
+        /* margin-left: 28%; */
+        width: 100%;
     }
 
     .img-character-container img {
@@ -616,5 +642,18 @@ body {
     #locationSection .locations div {
         width: 35%;
         height: 68%;
+    }
+
+    .input {
+        padding-left: 10%;
+        font-size: 15px;
+        width: 60%;
+        height: 50%;
+    }
+
+    .icon-rick-searchbar {
+        position: absolute;
+        left: 13.9rem;
+        height: 1.5rem;
     }
 }
