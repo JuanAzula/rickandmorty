@@ -4,26 +4,20 @@ import { changeCharPage } from './handlePagination/charPagination'
 import { changeEpisodePage } from './handlePagination/episodePagination'
 import { changeLocationPage } from './handlePagination/locationPagination'
 import { handleSection } from './components/menu'
+import { searchFunction } from './searchbar'
 
-const c = await apiService.getEpisodes()
-console.log(c)
-const f = await apiService.getFirstPageCharacters()
-console.log(f)
-const a = await apiService.getSpecificPageCharacters(1)
-console.log(a)
-const b = await apiService.getLocations()
-console.log(b)
+// const c = await apiService.getEpisodes()
+// console.log(c)
+// const f = await apiService.getFirstPageCharacters()
+// console.log(f)
+// const a = await apiService.getSpecificPageCharacters(1)
+// console.log(a)
+// const b = await apiService.getLocations()
+// console.log(b)
 
-const audio = new Audio('./RickandMorty.mp3')
-audio.volume = 0.4
-audio.play()
-// const characters = document.getElementById('characters');
-
-// characters.innerText = a.map(id => id.name);
-
-// console.log(a[0]);
-
-// episodes, gender, location.name, origin.name, species, status
+// const audio = new Audio('./RickandMorty.mp3')
+// audio.volume = 0.4
+// audio.play()
 
 // ////// HANDLE MENU BUTTONS /////
 const buttons = document.querySelectorAll('.menu-container .button')
@@ -63,22 +57,12 @@ locationLis.forEach(li => {
   })
 })
 
-// async function changePage(page: number) {
-//     const handlePage = await apiService.getSpecificPageCharacters(page);
+const searchbar = document.getElementById('searchbar')
 
-//     const characters = document.getElementById('characters');
-//     characters.innerText = handlePage.map(id => id.name);
-
-//     const imageContainer = document.getElementById('imgContainer');
-
-//     images.src = handlePage.map(id => id.image);
-// }
-
-// const lis = document.querySelectorAll( li');
-
-// lis.forEach(li => {
-//     li.addEventListener('click', function (this: HTMLElement) {
-//         const value = this.querySelector('a')?.getAttribute('value');
-//         changePage(value ? Number(value) : 1);
-//     });
-// });
+searchbar?.addEventListener('keyup', function (event) {
+  if (event.key === 'Enter') {
+    const searchValue = parseInt((event.target as HTMLInputElement).value)
+    console.log(searchValue)
+    searchFunction(searchValue)
+  }
+})

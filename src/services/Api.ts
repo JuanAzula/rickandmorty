@@ -26,7 +26,8 @@ class apiService {
   }
 
   static async getCharacter (id: number) { // a través de la función getproductos por id, mostramos el producto con el id recibido
-    return (await axios.get(BASE_URL + '/character/' + id)).data.results
+    const response = await axios.get(BASE_URL + '/character/' + id)
+    return response.data
   }
 
   static async getLocations () { // static para que se pueda llamar a la función getproductos sin estar dentro de la clase
