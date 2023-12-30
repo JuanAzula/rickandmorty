@@ -1,5 +1,4 @@
 import './styles.css'
-import { apiService } from './services/Api'
 import { changeCharPage } from './handlePagination/charPagination'
 import { changeEpisodePage } from './handlePagination/episodePagination'
 import { changeLocationPage } from './handlePagination/locationPagination'
@@ -21,10 +20,9 @@ import { searchFunction } from './searchbar'
 
 // ////// HANDLE MENU BUTTONS /////
 const buttons = document.querySelectorAll('.menu-container .button')
-const menuContainer = document.getElementById('menu-container')
 
 buttons.forEach(button => {
-  button.addEventListener('click', handleSection)
+  button.addEventListener('click', handleSection as EventListener)
 })
 
 // ///////// HANDLE CHARACTERS PAGINATION //////
@@ -60,9 +58,9 @@ locationLis.forEach(li => {
 const searchbar = document.getElementById('searchbar')
 
 searchbar?.addEventListener('keyup', function (event) {
-  if (event.key === 'Enter') {
-    const searchValue = parseInt((event.target as HTMLInputElement).value)
-    console.log(searchValue)
-    searchFunction(searchValue)
-  }
+  // if (event.key === 'Enter') {
+  const searchValue = parseInt((event.target as HTMLInputElement).value)
+  console.log(searchValue)
+  searchFunction(searchValue)
+  // }
 })
