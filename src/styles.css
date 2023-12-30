@@ -227,6 +227,12 @@ body {
     font-family: sans-serif;
 }
 
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
 .container {
     height: 5vh;
     width: 100%;
@@ -243,6 +249,7 @@ body {
     position: fixed;
     top: 10%;
     height: 60px;
+    width: 100%;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -477,12 +484,6 @@ height: 1rem;
         background: linear-gradient(-45deg, #1cff4d 0%, #605a55 100%);
     }
 
-    .pagination {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
     .character h3 {
         font-size: 15px;
     }
@@ -498,7 +499,7 @@ height: 1rem;
     }
 
     .container .pagination li a {
-        padding: 20px 15px;
+        padding: 5px 15px;
     }
 
     .input {
@@ -530,6 +531,7 @@ height: 1rem;
 
     .menu-container {
         margin-left: 37%;
+        height: 5%;
     }
 
     .character h3 {
@@ -593,10 +595,22 @@ height: 1rem;
         padding: 1px 15px;
     }
 
+    .container .pagination {
+        top: 24%;
+        height: 90px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    }
+
     .input {
         padding-left: 3%;
         margin-left: 0;
         font-size: 20px;
+    }
+
+    .searchbar-container {
+        top: 33%;
+        margin-bottom: 35px;
     }
 
     .icon-rick-searchbar {
@@ -612,8 +626,12 @@ height: 1rem;
     .header img {
         margin-top: 12%;
         margin-left: 1.7%;
-        height: 100px;
+        height: 130px;
         size: 80px;
+    }
+
+    .container .pagination {
+        top: 14%;
     }
 
     .menu-container {
@@ -623,6 +641,7 @@ height: 1rem;
 
     .searchbar-container {
         /* margin-left: 28%; */
+        top: 22%;
         width: 100%;
     }
 
@@ -649,6 +668,14 @@ height: 1rem;
         font-size: 15px;
         width: 60%;
         height: 50%;
+    }
+
+    .character h3 {
+        padding-top: 0;
+    }
+
+    .character p {
+        font-size: 12px;
     }
 
     .icon-rick-searchbar {
