@@ -1,45 +1,58 @@
 import { apiService } from './services/Api'
 
-export async function searchFunction (searchValue: number) {
+export async function searchFunction (searchValue: string) {
   const category = localStorage.getItem('category')
+
   if (category === 'characters') {
-    const character = await apiService.getCharacter(searchValue)
-    const charactersContainer = document.getElementById('characters')
-    console.log(character)
-    characters.innerText = ''
+    let foundMatch = false
+    // const character = await apiService.getCharacter(searchValue)
+    for (let i = 1; i < 43; i++) {
+      if (foundMatch) {
+        break
+      }
+      const character = await apiService.getSpecificPageCharacters(i)
+      const charactersContainer = document.getElementById('characters')
+      // console.log(character)
+      charactersContainer.innerText = ''
 
-    const characterName = character.name
-    console.log(characterName)
-    const charStatus = character.status
-    const charSpecies = character.species
-    const charGender = character.gender
-    const characterImage = character.image
+      await character.forEach(async (character: any) => {
+        const characterName = character.name
+        const charStatus = character.status
+        const charSpecies = character.species
+        const charGender = character.gender
+        const characterImage = character.image
 
-    const nameCharElement = document.createElement('h3')
-    nameCharElement.textContent = characterName
+        if (characterName === searchValue) {
+          const nameCharElement = document.createElement('h3')
+          nameCharElement.textContent = characterName
 
-    const statusCharElement = document.createElement('p')
-    statusCharElement.textContent = 'Status: ' + charStatus
+          const statusCharElement = document.createElement('p')
+          statusCharElement.textContent = 'Status: ' + charStatus
 
-    const speciesCharElement = document.createElement('p')
-    speciesCharElement.textContent = 'Species: ' + charSpecies
+          const speciesCharElement = document.createElement('p')
+          speciesCharElement.textContent = 'Species: ' + charSpecies
 
-    const genderCharElement = document.createElement('p')
-    genderCharElement.textContent = 'Gender: ' + charGender
+          const genderCharElement = document.createElement('p')
+          genderCharElement.textContent = 'Gender: ' + charGender
 
-    const imageElement = document.createElement('img')
-    imageElement.src = characterImage
+          const imageElement = document.createElement('img')
+          imageElement.src = characterImage
 
-    const singularChar = document.createElement('div')
+          const singularChar = document.createElement('div')
 
-    singularChar?.classList.add('character')
-    singularChar?.classList.add('innerCard')
-    singularChar?.appendChild(nameCharElement)
-    singularChar?.appendChild(statusCharElement)
-    singularChar?.appendChild(speciesCharElement)
-    singularChar?.appendChild(genderCharElement)
-    singularChar?.appendChild(imageElement)
-    charactersContainer?.appendChild(singularChar)
+          singularChar?.classList.add('character')
+          singularChar?.classList.add('innerCard')
+          singularChar?.appendChild(nameCharElement)
+          singularChar?.appendChild(statusCharElement)
+          singularChar?.appendChild(speciesCharElement)
+          singularChar?.appendChild(genderCharElement)
+          singularChar?.appendChild(imageElement)
+          charactersContainer?.appendChild(singularChar)
+
+          foundMatch = true
+        }
+      })
+    }
   } else if (category === 'episodes') {
     const episode = await apiService.getEpisode(searchValue)
     const episodesContainer = document.getElementById('episodes')

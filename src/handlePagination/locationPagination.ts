@@ -4,7 +4,7 @@ export async function changeLocationPage (page: number) {
   const handlePage = await apiService.getSpecificPageLocations(page)
   const locationsContainer = document.getElementById('locations')
 
-  locations.innerText = ''
+  locationsContainer.innerText = ''
 
   await handlePage.forEach(async (location: any) => {
     const characterName = location.name

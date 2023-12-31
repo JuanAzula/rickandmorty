@@ -4,7 +4,7 @@ export async function changeCharPage (page: number) {
   const handlePage = await apiService.getSpecificPageCharacters(page)
   const charactersContainer = document.getElementById('characters')
 
-  characters.innerText = ''
+  charactersContainer.innerText = ''
 
   await handlePage.forEach(async (character: any) => {
     const characterName = character.name

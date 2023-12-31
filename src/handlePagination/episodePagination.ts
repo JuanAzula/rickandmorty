@@ -5,7 +5,7 @@ export async function changeEpisodePage (page: number) {
   const handlePage = await apiService.getSpecificPageEpisodes(page)
   const episodesContainer = document.getElementById('episodes')
 
-  episodes.innerText = ''
+  episodesContainer.innerText = ''
 
   await handlePage.forEach(async (episode: any) => {
     const episodeName = episode.name

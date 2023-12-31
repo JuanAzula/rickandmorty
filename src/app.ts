@@ -55,12 +55,13 @@ locationLis.forEach(li => {
   })
 })
 
+// /////// HANDLE SEARCHBAR //////
 const searchbar = document.getElementById('searchbar')
 
 searchbar?.addEventListener('keyup', function (event) {
-  // if (event.key === 'Enter') {
-  const searchValue = parseInt((event.target as HTMLInputElement).value)
-  console.log(searchValue)
-  searchFunction(searchValue)
-  // }
+  if (event.key === 'Enter') {
+    const searchValue = (event.target as HTMLInputElement).value
+    console.log(searchValue)
+    searchFunction(searchValue)
+  }
 })

@@ -303,9 +303,9 @@ body {
     border-radius: 8px;
     outline: none;
     background-color: rgba(255, 255, 255, 0.2);
-    color: rgb(235, 233, 233);
+    color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px,
-        rgba(122, 122, 122, 0.5) 5px 10px 15px;
+        rgba(74, 74, 74, 0.5) 5px 10px 5px;
 
     transition: .3s ease;
 }
@@ -603,7 +603,7 @@ height: 1rem;
     }
 
     .input {
-        padding-left: 3%;
+        padding-left: 6%;
         margin-left: 0;
         font-size: 20px;
     }
