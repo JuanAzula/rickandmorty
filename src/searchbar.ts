@@ -57,7 +57,7 @@ export async function searchFunction (searchValue: string) {
     const episode = await apiService.getEpisode(searchValue)
     const episodesContainer = document.getElementById('episodes')
     console.log(episode)
-    episodes.innerText = ''
+    episodesContainer.innerText = ''
 
     const episodeName = episode.name
     const episodeDate = episode.air_date
@@ -84,7 +84,7 @@ export async function searchFunction (searchValue: string) {
     const location = await apiService.getLocation(searchValue)
     const locationsContainer = document.getElementById('locations')
     console.log(location)
-    locations.innerText = ''
+    locationsContainer.innerText = ''
 
     const locationName = location.name
     const locationDimension = location.dimension

@@ -267,7 +267,7 @@ body {
 
 .container .pagination li a {
     position: relative;
-    padding: 20px 25px;
+    padding: 6px 25px;
     text-decoration: none;
     color: #fff;
     font-weight: 500;
@@ -484,8 +484,14 @@ height: 1rem;
         background: linear-gradient(-45deg, #1cff4d 0%, #605a55 100%);
     }
 
+    .characters-container .characters div {
+
+        display: flex;
+        width: 20%;
+    }
+
     .character h3 {
-        font-size: 15px;
+        font-size: 18px;
     }
 
     .img-character-container {
