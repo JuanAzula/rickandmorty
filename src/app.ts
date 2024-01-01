@@ -59,9 +59,9 @@ locationLis.forEach(li => {
 const searchbar = document.getElementById('searchbar')
 
 searchbar?.addEventListener('keyup', function (event) {
-  if (event.key === 'Enter') {
-    const searchValue = (event.target as HTMLInputElement).value
-    console.log(searchValue)
-    searchFunction(searchValue)
-  }
+  // if (event.key === 'Enter') {
+  const searchValue = (event.target as HTMLInputElement).value
+  console.log(searchValue)
+  searchFunction(searchValue)
+  // }
 })

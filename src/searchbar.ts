@@ -5,24 +5,32 @@ export async function searchFunction (searchValue: string) {
 
   if (category === 'characters') {
     let foundMatch = false
+    let count = 0
+    let character: any
+    const totalCharacters: any[] = []
     // const character = await apiService.getCharacter(searchValue)
     for (let i = 1; i < 43; i++) {
       if (foundMatch) {
         break
       }
-      const character = await apiService.getSpecificPageCharacters(i)
-      const charactersContainer = document.getElementById('characters')
-      // console.log(character)
-      charactersContainer.innerText = ''
-
-      await character.forEach(async (character: any) => {
+      character = await apiService.getSpecificPageCharacters(i)
+      totalCharacters.push(character)
+    }
+    const charactersContainer = document.getElementById('characters')
+    // console.log(character)
+    charactersContainer.innerText = ''
+    for (const characters of totalCharacters) {
+      characters.forEach(async (character: any) => {
         const characterName = character.name
         const charStatus = character.status
         const charSpecies = character.species
         const charGender = character.gender
         const characterImage = character.image
 
-        if (characterName === searchValue) {
+        const characterNameLower = characterName.toLowerCase()
+        const searchValueLower = searchValue.toLowerCase()
+
+        if (characterNameLower.includes(searchValueLower)) {
           const nameCharElement = document.createElement('h3')
           nameCharElement.textContent = characterName
 
@@ -49,7 +57,11 @@ export async function searchFunction (searchValue: string) {
           singularChar?.appendChild(imageElement)
           charactersContainer?.appendChild(singularChar)
 
-          foundMatch = true
+          count++
+          console.log(count)
+          if (count >= 10) {
+            foundMatch = true
+          }
         }
       })
     }
