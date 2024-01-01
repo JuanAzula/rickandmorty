@@ -25,6 +25,7 @@ export async function searchFunction (searchValue: string) {
         const charStatus = character.status
         const charSpecies = character.species
         const charGender = character.gender
+        const charOrigin = character.origin.name
         const characterImage = character.image
 
         const characterNameLower = characterName.toLowerCase()
@@ -43,6 +44,9 @@ export async function searchFunction (searchValue: string) {
           const genderCharElement = document.createElement('p')
           genderCharElement.textContent = 'Gender: ' + charGender
 
+          const originCharElement = document.createElement('p')
+          originCharElement.textContent = 'Origin: ' + charOrigin
+
           const imageElement = document.createElement('img')
           imageElement.src = characterImage
 
@@ -54,6 +58,7 @@ export async function searchFunction (searchValue: string) {
           singularChar?.appendChild(statusCharElement)
           singularChar?.appendChild(speciesCharElement)
           singularChar?.appendChild(genderCharElement)
+          singularChar?.appendChild(originCharElement)
           singularChar?.appendChild(imageElement)
           charactersContainer?.appendChild(singularChar)
 
@@ -93,31 +98,45 @@ export async function searchFunction (searchValue: string) {
     singularChar?.appendChild(dateElement)
     episodesContainer?.appendChild(singularChar)
   } else if (category === 'locations') {
-    const location = await apiService.getLocation(searchValue)
+    let location: any
+    const totalLocations: any[] = []
+    for (let i = 1; i < 8; i++) {
+      location = await apiService.getSpecificPageLocations(i)
+      totalLocations.push(location)
+    }
     const locationsContainer = document.getElementById('locations')
     console.log(location)
     locationsContainer.innerText = ''
 
-    const locationName = location.name
-    const locationDimension = location.dimension
-    const locationType = location.type
+    for (const locations of totalLocations) {
+      locations.forEach(async (location: any) => {
+        const locationName = location.name
+        const locationDimension = location.dimension
+        const locationType = location.type
 
-    const locationNameElement = document.createElement('h3')
-    locationNameElement.textContent = locationName
+        const locationNameLower = locationName.toLowerCase()
+        const searchValueLower = searchValue.toLowerCase()
 
-    const dimensionElement = document.createElement('p')
-    dimensionElement.textContent = 'Dimension: ' + locationDimension
+        if (locationNameLower.includes(searchValueLower)) {
+          const locationNameElement = document.createElement('h3')
+          locationNameElement.textContent = locationName
 
-    const typeElement = document.createElement('p')
-    typeElement.textContent = 'Type: ' + locationType
+          const dimensionElement = document.createElement('p')
+          dimensionElement.textContent = 'Dimension: ' + locationDimension
 
-    const singularChar = document.createElement('div')
+          const typeElement = document.createElement('p')
+          typeElement.textContent = 'Type: ' + locationType
 
-    singularChar?.classList.add('location')
-    singularChar?.classList.add('innerCardLocation')
-    singularChar?.appendChild(locationNameElement)
-    singularChar?.appendChild(dimensionElement)
-    singularChar?.appendChild(typeElement)
-    locationsContainer?.appendChild(singularChar)
+          const singularChar = document.createElement('div')
+
+          singularChar?.classList.add('location')
+          singularChar?.classList.add('innerCardLocation')
+          singularChar?.appendChild(locationNameElement)
+          singularChar?.appendChild(dimensionElement)
+          singularChar?.appendChild(typeElement)
+          locationsContainer?.appendChild(singularChar)
+        }
+      })
+    }
   }
 }

@@ -25,7 +25,7 @@ export function handleSection (event: MouseEvent) {
 
   if (buttonText === 'characters') {
     localStorage.setItem('category', 'characters')
-    searchbar.placeholder = '🔍 Search by name'
+    searchbar.placeholder = '🔍 Character name'
     searchbar?.classList.replace('hide-section', 'show-section')
     characterPagination?.classList.replace('hide-section', 'show-section')
     characterSection?.classList.replace('hide-section', 'show-section')
@@ -36,7 +36,7 @@ export function handleSection (event: MouseEvent) {
 
   if (buttonText === 'locations') {
     localStorage.setItem('category', 'locations')
-    searchbar.placeholder = '🔍 Location Id'
+    searchbar.placeholder = '🔍 Location name'
     searchbar?.classList.replace('hide-section', 'show-section')
     locationPagination?.classList.replace('hide-section', 'show-section')
     locationSection?.classList.replace('hide-section', 'show-section')

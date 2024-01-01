@@ -11,6 +11,7 @@ export async function changeCharPage (page: number) {
     const charStatus = character.status
     const charSpecies = character.species
     const charGender = character.gender
+    const charOrigin = character.origin.name
     const characterImage = character.image
 
     const nameCharElement = document.createElement('h3')
@@ -25,6 +26,9 @@ export async function changeCharPage (page: number) {
     const genderCharElement = document.createElement('p')
     genderCharElement.textContent = 'Gender: ' + charGender
 
+    const originCharElement = document.createElement('p')
+    originCharElement.textContent = 'Origin: ' + charOrigin
+
     const imageElement = document.createElement('img')
     imageElement.src = characterImage
 
@@ -36,6 +40,7 @@ export async function changeCharPage (page: number) {
     singularChar?.appendChild(statusCharElement)
     singularChar?.appendChild(speciesCharElement)
     singularChar?.appendChild(genderCharElement)
+    singularChar?.appendChild(originCharElement)
     singularChar?.appendChild(imageElement)
     charactersContainer?.appendChild(singularChar)
   })
