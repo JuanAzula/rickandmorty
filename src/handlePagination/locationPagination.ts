@@ -6,27 +6,55 @@ export async function changeLocationPage (page: number) {
 
   locationsContainer.innerText = ''
 
+  let locationResidents: any = {}
+  const locationResidentsTotal: any[] = []
+
   await handlePage.forEach(async (location: any) => {
     const characterName = location.name
     const locationDimension = location.dimension
     const locationType = location.type
+    const locationResidentsUrl = location.residents
+    let locationResidentsName: any
+    const locationResidentsNameTotal: any[] = []
 
-    const locationNameElement = document.createElement('h3')
-    locationNameElement.textContent = characterName
+    locationResidentsUrl.forEach(async (url: any) => {
+      if (url !== undefined) {
+        locationResidents = await apiService.getLocationResidents(url)
+        locationResidentsTotal.push(locationResidents)
 
-    const dimensionElement = document.createElement('p')
-    dimensionElement.textContent = 'Dimension: ' + locationDimension
+        console.log(url)
 
-    const typeElement = document.createElement('p')
-    typeElement.textContent = 'Type: ' + locationType
+        console.log(locationResidents)
+        console.log(locationResidentsTotal)
+      }
+      // locationResidents = await apiService.getLocationResidents(url)
+      // locationResidentsTotal.push(locationResidents)
+      locationResidentsTotal.forEach(async (locationResidents: any) => {
+        locationResidentsName = locationResidents.name
+        locationResidentsNameTotal.push(locationResidentsName)
+      })
 
-    const singularChar = document.createElement('div')
+      const locationNameElement = document.createElement('h3')
+      locationNameElement.textContent = characterName
 
-    singularChar?.classList.add('location')
-    singularChar?.classList.add('innerCardLocation')
-    singularChar?.appendChild(locationNameElement)
-    singularChar?.appendChild(dimensionElement)
-    singularChar?.appendChild(typeElement)
-    locationsContainer?.appendChild(singularChar)
+      const dimensionElement = document.createElement('p')
+      dimensionElement.textContent = 'Dimension: ' + locationDimension
+
+      const typeElement = document.createElement('p')
+      typeElement.textContent = 'Type: ' + locationType
+
+      const residentsElement = document.createElement('p')
+      residentsElement.textContent = 'Residents: ' + locationResidents.name
+
+      const singularChar = document.createElement('div')
+
+      singularChar?.classList.add('location')
+      singularChar?.classList.add('innerCardLocation')
+      singularChar?.appendChild(locationNameElement)
+      singularChar?.appendChild(dimensionElement)
+      singularChar?.appendChild(typeElement)
+      singularChar?.appendChild(residentsElement)
+      locationsContainer?.appendChild(singularChar)
+    })
   })
 }

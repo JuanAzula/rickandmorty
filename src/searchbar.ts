@@ -4,8 +4,7 @@ export async function searchFunction (searchValue: string) {
   const category = localStorage.getItem('category')
 
   if (category === 'characters') {
-    let foundMatch = false
-    let count = 0
+    const foundMatch = false
     let character: any
     const totalCharacters: any[] = []
     // const character = await apiService.getCharacter(searchValue)
@@ -61,12 +60,6 @@ export async function searchFunction (searchValue: string) {
           singularChar?.appendChild(originCharElement)
           singularChar?.appendChild(imageElement)
           charactersContainer?.appendChild(singularChar)
-
-          count++
-          console.log(count)
-          if (count >= 10) {
-            foundMatch = true
-          }
         }
       })
     }
