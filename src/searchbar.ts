@@ -144,6 +144,7 @@ export async function searchFunction (searchValue: string) {
 
           singularChar?.classList.add('location')
           singularChar?.classList.add('innerCardLocation')
+          residentsElement?.classList.add('location-residents')
           singularChar?.appendChild(locationNameElement)
           singularChar?.appendChild(dimensionElement)
           singularChar?.appendChild(typeElement)

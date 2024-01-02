@@ -43,6 +43,7 @@ export async function changeLocationPage (page: number) {
     const singularChar = document.createElement('div')
     singularChar?.classList.add('location')
     singularChar?.classList.add('innerCardLocation')
+    residentsElement?.classList.add('location-residents')
     singularChar?.appendChild(locationNameElement)
     singularChar?.appendChild(dimensionElement)
     singularChar?.appendChild(typeElement)

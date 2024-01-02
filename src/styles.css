@@ -54,15 +54,15 @@ body {
 
 
 
-/*  //////////////////77 LOCATION //////////////// */
+/*  /////////////////// LOCATION //////////////// */
 #locationSection .locations div {
 
     display: flex;
-    width: 16%;
+    width: 35%;
     margin-left: 2%;
     margin-right: 2%;
     margin-bottom: 5%;
-    height: 62%;
+    height: 92%;
     padding: 10px;
 }
 
@@ -75,6 +75,9 @@ body {
     width: 100%;
 }
 
+.location-residents {
+    font-size: x-small;
+}
 
 
 /* ///////////////// CHARACTERS ////////////////// */
@@ -134,7 +137,11 @@ body {
     /* margin-top: 15px; */
 }
 
-/* //////////////////// HEADER */
+
+
+
+
+/* //////////////////////////// HEADER */
 .header img {
     margin-top: 10%;
     height: 200px;
@@ -155,7 +162,13 @@ body {
     justify-content: space-between;
 }
 
-/* //////////////////// MENU  /////////////////////////////////////////7*/
+
+
+
+
+
+
+/* /////////////////////// MENU  /////////////////////////////////////////7*/
 .menu-container {
     position: fixed;
     margin-left: 37.9%;
@@ -220,7 +233,11 @@ body {
 }
 
 
-/* //////////////// Pagination /////////////////////////////////////////*/
+
+
+
+
+/* //////////////////////////////// Pagination /////////////////////////////////////////*/
 * {
     margin: 0;
     padding: 0;
@@ -278,6 +295,12 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 
+
+
+
+
+
+
 /* ////////////////////////////// SEARCHBAR /////////////////*/
 .searchbar-container {
     display: flex;
@@ -331,7 +354,11 @@ height: 1rem;
     height: 2.5rem;
 }
 
-/* //////////////////////////////// CARDS */
+
+
+
+
+/* //////////////////////////// CARDS */
 .myCardCharacter {
     background-color: transparent;
     perspective: 1000px;
@@ -346,7 +373,7 @@ height: 1rem;
 
 .myCardLocation {
     background-color: transparent;
-    height: 254px;
+    height: 554px;
     perspective: 1000px;
 }
 
@@ -517,6 +544,11 @@ height: 1rem;
         position: absolute;
         left: 37.55rem;
     }
+
+    #locationSection .locations div {
+        width: 35%;
+        height: 92%;
+    }
 }
 
 @media(max-width:1000px) {
@@ -541,21 +573,21 @@ height: 1rem;
     }
 
     .character h3 {
-        color: rgb(155, 244, 145);
+        color: rgb(242, 246, 241);
     }
 
     .innerCard {
-        color: rgb(155, 244, 145);
+        color: rgb(242, 246, 241);
         background: linear-gradient(-45deg, #38ba3a 0%, #1f213f 100%);
     }
 
     .innerCardLocation {
-        color: rgb(155, 244, 145);
+        color: rgb(242, 246, 241);
         background: linear-gradient(-45deg, #38ba3a 0%, #1f213f 100%);
     }
 
     .innerCardEpisode {
-        color: rgb(155, 244, 145);
+        color: rgb(242, 246, 241);
         background: linear-gradient(-45deg, #38ba3a 0%, #1f213f 100%);
     }
 
@@ -564,7 +596,7 @@ height: 1rem;
     }
 
     .myCardLocation {
-        height: 299px;
+        height: 399px;
     }
 
     .characters-container .characters div {
@@ -578,8 +610,8 @@ height: 1rem;
     }
 
     #locationSection .locations div {
-        width: 22%;
-        height: 48%;
+        width: 75%;
+        height: 92%;
     }
 
     /* .character img {
