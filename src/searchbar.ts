@@ -144,7 +144,11 @@ export async function searchFunction (searchValue: string) {
 
           singularChar?.classList.add('location')
           singularChar?.classList.add('innerCardLocation')
-          residentsElement?.classList.add('location-residents')
+          if (locationName === 'Earth (Replacement Dimension)' || locationName === 'Citadel of Ricks') {
+            residentsElement?.classList.add('location-residents')
+          } else {
+            residentsElement?.classList.remove('location-residents')
+          }
           singularChar?.appendChild(locationNameElement)
           singularChar?.appendChild(dimensionElement)
           singularChar?.appendChild(typeElement)
