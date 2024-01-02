@@ -6,55 +6,47 @@ export async function changeLocationPage (page: number) {
 
   locationsContainer.innerText = ''
 
-  let locationResidents: any = {}
-  const locationResidentsTotal: any[] = []
-
-  await handlePage.forEach(async (location: any) => {
-    const characterName = location.name
+  for (const location of handlePage) {
+    const locationName = location.name
     const locationDimension = location.dimension
     const locationType = location.type
     const locationResidentsUrl = location.residents
-    let locationResidentsName: any
-    const locationResidentsNameTotal: any[] = []
+    const locationResidentsTotal: any[] = []
 
-    locationResidentsUrl.forEach(async (url: any) => {
+    for (const url of locationResidentsUrl) {
       if (url !== undefined) {
-        locationResidents = await apiService.getLocationResidents(url)
+        const locationResidents = await apiService.getLocationResidents(url)
         locationResidentsTotal.push(locationResidents)
-
-        console.log(url)
-
-        console.log(locationResidents)
-        console.log(locationResidentsTotal)
       }
-      // locationResidents = await apiService.getLocationResidents(url)
-      // locationResidentsTotal.push(locationResidents)
-      locationResidentsTotal.forEach(async (locationResidents: any) => {
-        locationResidentsName = locationResidents.name
-        locationResidentsNameTotal.push(locationResidentsName)
-      })
+    }
 
-      const locationNameElement = document.createElement('h3')
-      locationNameElement.textContent = characterName
+    let locationResidentsNameTotalFormat: string = ''
+    for (const names of locationResidentsTotal) {
+      locationResidentsNameTotalFormat += names.name + ', '
+    }
+    locationResidentsNameTotalFormat = locationResidentsNameTotalFormat.slice(0, -2) // Eliminar la coma extra al final
 
-      const dimensionElement = document.createElement('p')
-      dimensionElement.textContent = 'Dimension: ' + locationDimension
+    console.log(locationResidentsNameTotalFormat)
 
-      const typeElement = document.createElement('p')
-      typeElement.textContent = 'Type: ' + locationType
+    const locationNameElement = document.createElement('h3')
+    locationNameElement.textContent = locationName
 
-      const residentsElement = document.createElement('p')
-      residentsElement.textContent = 'Residents: ' + locationResidents.name
+    const dimensionElement = document.createElement('p')
+    dimensionElement.textContent = 'Dimension: ' + locationDimension
 
-      const singularChar = document.createElement('div')
+    const typeElement = document.createElement('p')
+    typeElement.textContent = 'Type: ' + locationType
 
-      singularChar?.classList.add('location')
-      singularChar?.classList.add('innerCardLocation')
-      singularChar?.appendChild(locationNameElement)
-      singularChar?.appendChild(dimensionElement)
-      singularChar?.appendChild(typeElement)
-      singularChar?.appendChild(residentsElement)
-      locationsContainer?.appendChild(singularChar)
-    })
-  })
+    const residentsElement = document.createElement('p')
+    residentsElement.textContent = 'Residents: ' + locationResidentsNameTotalFormat
+
+    const singularChar = document.createElement('div')
+    singularChar?.classList.add('location')
+    singularChar?.classList.add('innerCardLocation')
+    singularChar?.appendChild(locationNameElement)
+    singularChar?.appendChild(dimensionElement)
+    singularChar?.appendChild(typeElement)
+    singularChar?.appendChild(residentsElement)
+    locationsContainer?.appendChild(singularChar)
+  }
 }

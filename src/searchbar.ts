@@ -106,6 +106,23 @@ export async function searchFunction (searchValue: string) {
         const locationName = location.name
         const locationDimension = location.dimension
         const locationType = location.type
+        const locationResidentsUrl = location.residents
+        const locationResidentsTotal: any[] = []
+
+        locationsContainer.innerText = ''
+
+        for (const url of locationResidentsUrl) {
+          if (url !== undefined) {
+            const locationResidents = await apiService.getLocationResidents(url)
+            locationResidentsTotal.push(locationResidents)
+          }
+        }
+
+        let locationResidentsNameTotalFormat: string = ''
+        for (const names of locationResidentsTotal) {
+          locationResidentsNameTotalFormat += names.name + ', '
+        }
+        locationResidentsNameTotalFormat = locationResidentsNameTotalFormat.slice(0, -2) // Eliminar la coma extra al final
 
         const locationNameLower = locationName.toLowerCase()
         const searchValueLower = searchValue.toLowerCase()
@@ -120,6 +137,9 @@ export async function searchFunction (searchValue: string) {
           const typeElement = document.createElement('p')
           typeElement.textContent = 'Type: ' + locationType
 
+          const residentsElement = document.createElement('p')
+          residentsElement.textContent = 'Residents: ' + locationResidentsNameTotalFormat
+
           const singularChar = document.createElement('div')
 
           singularChar?.classList.add('location')
@@ -127,6 +147,7 @@ export async function searchFunction (searchValue: string) {
           singularChar?.appendChild(locationNameElement)
           singularChar?.appendChild(dimensionElement)
           singularChar?.appendChild(typeElement)
+          singularChar?.appendChild(residentsElement)
           locationsContainer?.appendChild(singularChar)
         }
       })
