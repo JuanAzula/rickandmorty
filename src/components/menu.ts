@@ -3,6 +3,9 @@ export function handleSection (event: MouseEvent) {
   const buttonText = button.name
   const searchbar = document.getElementById('searchbar')
 
+  const menu = document.getElementById('menu')
+  menu?.classList.replace('menu-container-home', 'menu-container')
+
   const episodeSection = document.getElementById('episodesSection')
   const episodePagination = document.getElementById('episodesPagination')
 
@@ -14,7 +17,7 @@ export function handleSection (event: MouseEvent) {
 
   if (buttonText === 'episodes') {
     localStorage.setItem('category', 'episodes')
-    searchbar.placeholder = '🔍 Episode Id'
+    searchbar.placeholder = '🔍 Episode Id (number)'
     searchbar?.classList.replace('hide-section', 'show-section')
     episodePagination?.classList.replace('hide-section', 'show-section')
     episodeSection?.classList.replace('hide-section', 'show-section')

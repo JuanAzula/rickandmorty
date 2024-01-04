@@ -19,10 +19,10 @@ import { searchFunction } from './searchbar'
 // audio.play()
 
 // ////// HANDLE MENU BUTTONS /////
-const buttons = document.querySelectorAll('.menu-container .button')
+const buttons = document.querySelectorAll('#menu .button')
 
 buttons.forEach(button => {
-  button.addEventListener('click', handleSection as EventListener)
+  button.addEventListener('click', (handleSection as EventListener))
 })
 
 // ///////// HANDLE CHARACTERS PAGINATION //////
