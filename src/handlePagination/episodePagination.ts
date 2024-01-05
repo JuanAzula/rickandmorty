@@ -1,16 +1,21 @@
 import { apiService } from '../services/Api'
 
+const enum EPISODE {
+  NAME = 'name',
+  AIR_DATE = 'air_date',
+  EPISODE = 'episode'
+}
 export async function changeEpisodePage (page: number) {
   console.log('ep')
   const handlePage = await apiService.getSpecificPageEpisodes(page)
-  const episodesContainer = document.getElementById('episodes')
+  const episodesContainer = document.getElementById('episodes') as HTMLDivElement
 
   episodesContainer.innerText = ''
 
   await handlePage.forEach(async (episode: any) => {
-    const episodeName = episode.name
-    const episodeDate = episode.air_date
-    const episodeId = episode.episode
+    const episodeName = episode[EPISODE.NAME]
+    const episodeDate = episode[EPISODE.AIR_DATE]
+    const episodeId = episode[EPISODE.EPISODE]
     console.log(episodeName)
     const nameElement = document.createElement('h3')
     nameElement.textContent = episodeName

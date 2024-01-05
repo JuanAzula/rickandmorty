@@ -4,6 +4,7 @@ export async function searchFunction (searchValue: string) {
   const category = localStorage.getItem('category')
 
   if (category === 'characters') {
+    const searchString: string = searchValue
     const foundMatch = false
     let character: any
     const totalCharacters: any[] = []
@@ -17,7 +18,9 @@ export async function searchFunction (searchValue: string) {
     }
     const charactersContainer = document.getElementById('characters')
     // console.log(character)
-    charactersContainer.innerText = ''
+    if (charactersContainer !== null && charactersContainer instanceof HTMLDivElement) {
+      charactersContainer.innerText = ''
+    }
     for (const characters of totalCharacters) {
       characters.forEach(async (character: any) => {
         const characterName = character.name
@@ -27,8 +30,8 @@ export async function searchFunction (searchValue: string) {
         const charOrigin = character.origin.name
         const characterImage = character.image
 
-        const characterNameLower = characterName.toLowerCase()
-        const searchValueLower = searchValue.toLowerCase()
+        const characterNameLower: string = characterName.toLowerCase()
+        const searchValueLower = searchString.toLowerCase()
 
         if (characterNameLower.includes(searchValueLower)) {
           const nameCharElement = document.createElement('h3')
@@ -66,8 +69,10 @@ export async function searchFunction (searchValue: string) {
   } else if (category === 'episodes') {
     const episode = await apiService.getEpisode(searchValue)
     const episodesContainer = document.getElementById('episodes')
-    console.log(episode)
-    episodesContainer.innerText = ''
+
+    if (episodesContainer !== null && episodesContainer instanceof HTMLDivElement) {
+      episodesContainer.innerText = ''
+    }
 
     const episodeName = episode.name
     const episodeDate = episode.air_date
@@ -98,8 +103,10 @@ export async function searchFunction (searchValue: string) {
       totalLocations.push(location)
     }
     const locationsContainer = document.getElementById('locations')
-    console.log(location)
-    locationsContainer.innerText = ''
+
+    if (locationsContainer !== null && locationsContainer instanceof HTMLDivElement) {
+      locationsContainer.innerText = ''
+    }
 
     for (const locations of totalLocations) {
       locations.forEach(async (location: any) => {
@@ -109,7 +116,9 @@ export async function searchFunction (searchValue: string) {
         const locationResidentsUrl = location.residents
         const locationResidentsTotal: any[] = []
 
-        locationsContainer.innerText = ''
+        if (locationsContainer !== null && locationsContainer instanceof HTMLDivElement) {
+          locationsContainer.innerText = ''
+        }
 
         for (const url of locationResidentsUrl) {
           if (url !== undefined) {
@@ -124,7 +133,7 @@ export async function searchFunction (searchValue: string) {
         }
         locationResidentsNameTotalFormat = locationResidentsNameTotalFormat.slice(0, -2) // Eliminar la coma extra al final
 
-        const locationNameLower = locationName.toLowerCase()
+        const locationNameLower: string = locationName.toLowerCase()
         const searchValueLower = searchValue.toLowerCase()
 
         if (locationNameLower.includes(searchValueLower)) {

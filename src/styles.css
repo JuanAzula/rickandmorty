@@ -172,7 +172,7 @@ body {
 .menu-container-home {
     position: fixed;
     margin-left: 23%;
-    top: 33%;
+    top: 44%;
     display: flex;
     background-color: rgba(255, 255, 255, 0.206);
     width: 50%;
@@ -191,8 +191,8 @@ body {
     width: 100%;
     height: 15%;
     justify-content: center;
-    /*background-color: rgba(255, 255, 255, 0.05);
-    width: 25%;
+    /* background-color: rgba(255, 255, 255, 0.05); */
+    /*width: 25%;
     height: 7%;
     align-items: center;
     justify-content: space-around;
@@ -200,9 +200,17 @@ body {
     z-index: 999;
 }
 
-#menu .menu-element {
+.menu-container-home .menu-element {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    height: 37%;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.menu-container .menu-element {
+    display: flex;
     width: 25%;
     height: 37%;
     align-items: center;
@@ -280,8 +288,6 @@ body {
 .container {
     height: 5vh;
     width: 100%;
-    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -516,7 +522,7 @@ height: 1rem;
     }
 
     .header img {
-        margin-top: 15%;
+        margin-top: 18%;
     }
 
     .container {
@@ -591,13 +597,10 @@ height: 1rem;
     }
 
     .header img {
-        margin-top: 15%;
+        margin-top: 29%;
+        height: 200px;
     }
 
-    .menu-container {
-        /* margin-left: 37%;
-        height: 5%; */
-    }
 
     .character h3 {
         color: rgb(242, 246, 241);
@@ -661,7 +664,7 @@ height: 1rem;
     }
 
     .container .pagination {
-        top: 24%;
+        top: 10%;
         height: 90px;
         background: rgba(255, 255, 255, 0.05);
         box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
@@ -690,14 +693,13 @@ height: 1rem;
 
 @media(max-width:600px) {
     .header img {
-        margin-top: 12%;
-        margin-left: 1.7%;
-        height: 130px;
+        margin-top: 40%;
+        height: 160px;
         size: 80px;
     }
 
     .container .pagination {
-        top: 14%;
+        top: 8%;
     }
 
     .searchbar-container {
@@ -738,9 +740,12 @@ height: 1rem;
         font-size: 12px;
     }
 
-    .icon-rick-searchbar {
-        position: absolute;
-        left: 13.9rem;
-        height: 1.5rem;
+    .menu-container-home {
+        top: 35%;
+        height: 15%;
+    }
+
+    .menu-container .menu-element {
+        width: 38%;
     }
 }

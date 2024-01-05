@@ -1,18 +1,26 @@
 import { apiService } from '../services/Api'
 
+const enum CHARACTER {
+  NAME = 'name',
+  STATUS = 'status',
+  SPECIES = 'species',
+  GENDER = 'gender',
+  ORIGIN = 'origin.name',
+  IMAGE = 'image'
+}
 export async function changeCharPage (page: number) {
   const handlePage = await apiService.getSpecificPageCharacters(page)
-  const charactersContainer = document.getElementById('characters')
+  const charactersContainer = document.getElementById('characters') as HTMLDivElement
 
   charactersContainer.innerText = ''
 
   await handlePage.forEach(async (character: any) => {
-    const characterName = character.name
-    const charStatus = character.status
-    const charSpecies = character.species
-    const charGender = character.gender
-    const charOrigin = character.origin.name
-    const characterImage = character.image
+    const characterName = character[CHARACTER.NAME]
+    const charStatus = character[CHARACTER.STATUS]
+    const charSpecies = character[CHARACTER.SPECIES]
+    const charGender = character[CHARACTER.GENDER]
+    const charOrigin = character[CHARACTER.ORIGIN]
+    const characterImage = character[CHARACTER.IMAGE]
 
     const nameCharElement = document.createElement('h3')
     nameCharElement.textContent = characterName

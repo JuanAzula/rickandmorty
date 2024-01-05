@@ -5,15 +5,6 @@ import { changeLocationPage } from './handlePagination/locationPagination'
 import { handleSection } from './components/menu'
 import { searchFunction } from './searchbar'
 
-// const c = await apiService.getEpisodes()
-// console.log(c)
-// const f = await apiService.getFirstPageCharacters()
-// console.log(f)
-// const a = await apiService.getSpecificPageCharacters(1)
-// console.log(a)
-// const b = await apiService.getLocations()
-// console.log(b)
-
 // const audio = new Audio('./RickandMorty.mp3')
 // audio.volume = 0.4
 // audio.play()
@@ -59,9 +50,7 @@ locationLis.forEach(li => {
 const searchbar = document.getElementById('searchbar')
 
 searchbar?.addEventListener('keyup', function (event) {
-  // if (event.key === 'Enter') {
   const searchValue = (event.target as HTMLInputElement).value
   console.log(searchValue)
   searchFunction(searchValue)
-  // }
 })

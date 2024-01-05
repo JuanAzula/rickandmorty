@@ -1,16 +1,23 @@
 import { apiService } from '../services/Api'
 
+const enum LOCATION {
+  NAME = 'name',
+  DIMENSION = 'dimension',
+  TYPE = 'type',
+  RESIDENTS = 'residents'
+}
+
 export async function changeLocationPage (page: number) {
   const handlePage = await apiService.getSpecificPageLocations(page)
-  const locationsContainer = document.getElementById('locations')
+  const locationsContainer = document.getElementById('locations') as HTMLDivElement
 
   locationsContainer.innerText = ''
 
   for (const location of handlePage) {
-    const locationName = location.name
-    const locationDimension = location.dimension
-    const locationType = location.type
-    const locationResidentsUrl = location.residents
+    const locationName = location[LOCATION.NAME]
+    const locationDimension = location[LOCATION.DIMENSION]
+    const locationType = location[LOCATION.TYPE]
+    const locationResidentsUrl = location[LOCATION.RESIDENTS]
     const locationResidentsTotal: any[] = []
 
     for (const url of locationResidentsUrl) {
