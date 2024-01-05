@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RickAndMorty</title>
+  <script type="module" crossorigin src="/assets/index-gnFgv25F.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-MJZOrXfQ.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- /////////////////////// MENU -->
+    <main id="menu" class="menu-container-home">
+      <div class="menu-element">
+        <button class="button" name="episodes">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="4em" viewBox="0 0 24 24" stroke-width="1"
+            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" />
+            <path d="M10 9l5 3l-5 3z" />
+          </svg>
+          <span class="tooltip">Episodes</span>
+        </button>
+
+        <button class="button" name="characters">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="4em"
+            viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+          </svg>
+          <span class="tooltip">Characters</span>
+
+        </button>
+
+        <button class="button" name="locations">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin-2" width="4em"
+            viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7" />
+            <path d="M9 4v13" />
+            <path d="M15 7v5" />
+            <path
+              d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z" />
+            <path d="M19 18v.01" />
+          </svg>
+          <span class="tooltip">Locations</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- //////////////// HEADER ///////////////////// -->
+    <header class="header">
+      <img src="./src/img/Rick-and-Morty-15-12-2023.png" alt="">
+    </header>
+
+
+    <!-- ///////////////////////// SEARCHBAR //////////77 -->
+    <div class="searchbar-container">
+      <input id="searchbar" placeholder="🔍 Search by id" type="search" class="input hide-section">
+    </div>
+
+
+    <!--  //////////////////////////////////////////Character Pagination component -->
+    <section id="charactersPagination" class="hide-section">
+      <div class="container ">
+        <ul class="pagination" id="characterPage" onclick="changeCharPage(this.value)">
+          <li>
+            <a href="#">Prev</a>
+          </li>
+          <li>
+            <a href="#" value="1">1</a>
+          </li>
+          <li>
+            <a href="#" value="2">2</a>
+          </li>
+          <li>
+            <a href="#" value="3">3</a>
+          </li>
+          <li>
+            <a href="#" value="4">4</a>
+          </li>
+          <li>
+            <a href="#" value="5">5</a>
+          </li>
+          <li>
+            <a href="#" value="6">6</a>
+          </li>
+          <li>
+            <a href="#" value="7">7</a>
+          </li>
+          <li>
+            <a href="#" value="8">8</a>
+          </li>
+          <li>
+            <a href="#" value="9">9</a>
+          </li>
+          <li>
+            <a href="#" value="10">10</a>
+          </li>
+          <li>
+            <a href="#" value="11">11</a>
+          </li>
+          <li>
+            <a href="#" value="12">12</a>
+          </li>
+          <li>
+            <a href="#" value="13">13</a>
+          </li>
+          <li>
+            <a href="#" value="14">14</a>
+          </li>
+          <li>
+            <a href="#" value="15">15</a>
+          </li>
+          <li>
+            <a href="#" value="16">16</a>
+          </li>
+          <li>
+            <a href="#" value="17">17</a>
+          </li>
+          <li>
+            <a href="#" value="18">18</a>
+          </li>
+          <li>
+            <a href="#" value="19">19</a>
+          </li>
+          <li>
+            <a href="#" value="20">20</a>
+          </li>
+          <li>
+            <a href="#" value="21">21</a>
+          </li>
+          <li>
+            <a href="#" value="22">22</a>
+          </li>
+          <li>
+            <a href="#" value="23">23</a>
+          </li>
+          <li>
+            <a href="#" value="24">24</a>
+          </li>
+          <li>
+            <a href="#" value="25">25</a>
+          </li>
+          <li>
+            <a href="#" value="26">26</a>
+          </li>
+          <li>
+            <a href="#" value="27">27</a>
+          </li>
+          <li>
+            <a href="#" value="28">28</a>
+          </li>
+          <li>
+            <a href="#" value="29">29</a>
+          </li>
+          <li>
+            <a href="#" value="30">30</a>
+          </li>
+          <li>
+            <a href="#" value="31">31</a>
+          </li>
+          <li>
+            <a href="#" value="32">32</a>
+          </li>
+          <li>
+            <a href="#" value="33">33</a>
+          </li>
+          <li>
+            <a href="#" value="34">34</a>
+          </li>
+          <li>
+            <a href="#" value="35">35</a>
+          </li>
+          <li>
+            <a href="#" value="36">36</a>
+          </li>
+          <li>
+            <a href="#" value="37">37</a>
+          </li>
+          <li>
+            <a href="#" value="38">38</a>
+          </li>
+          <li>
+            <a href="#" value="39">39</a>
+          </li>
+          <li>
+            <a href="#" value="40">40</a>
+          </li>
+          <li>
+            <a href="#" value="41">41</a>
+          </li>
+          <li>
+            <a href="#" value="42">42</a>
+          </li>
+          <li>
+            <a href="#">Next</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- //////////////////// Characters  //////////////////// -->
+    <main id="charactersSection" class="hide-section">
+      <section class="characters-container " id="charContainer">
+        <div id="characters" class="characters myCardCharacter">
+
+        </div>
+
+      </section>
+    </main>
+
+
+    <!-- ///////////////////////////// EPISODES PAGINATION ///////// -->
+    <section id="episodesPagination" class="hide-section">
+      <div class="container ">
+        <ul class="pagination" id="episodePage" onclick="changeEpisodePage(this.value)">
+          <li>
+            <a href="#"> Prev </a>
+          </li>
+          <li>
+            <a href="#" value="1">1</a>
+          </li>
+          <li>
+            <a href="#" value="2">2</a>
+          </li>
+          <li>
+            <a href="#" value="3">3</a>
+          </li>
+          <li>
+            <a href="#">Next </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ////////////////////////////// Episodes ///////////////// -->
+    <main id="episodesSection" class="hide-section">
+      <div id="episodes" class="episodes myCardEpisode">
+
+      </div>
+
+    </main>
+
+
+    <!-- //////////////////////////// Location Pagination -->
+    <section id="locationPagination" class="hide-section">
+      <div class="container ">
+        <ul class="pagination" id="locationPage" onclick="changeLocationPage(this.value)">
+          <li>
+            <a href="#"> Prev </a>
+          </li>
+          <li>
+            <a href="#" value="1">1</a>
+          </li>
+          <li>
+            <a href="#" value="2">2</a>
+          </li>
+          <li>
+            <a href="#" value="3">3</a>
+          </li>
+          <li>
+            <a href="#" value="4">4</a>
+          </li>
+          <li>
+            <a href="#" value="5">5</a>
+          </li>
+          <li>
+            <a href="#" value="6">6</a>
+          </li>
+          <li>
+            <a href="#" value="7">7</a>
+          </li>
+          <li>
+            <a href="#">Next </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ///////////////////////////// Locations ////////////// -->
+    <main id="locationSection" class="hide-section">
+      <div id="locations" class="locations myCardLocation">
+
+      </div>
+
+    </main>
+  </div>
+
+</body>
+
+</html>
