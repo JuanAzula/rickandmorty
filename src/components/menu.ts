@@ -1,7 +1,7 @@
 export function handleSection (event: MouseEvent) {
   const button = event.target as HTMLButtonElement
   const buttonText = button.name
-  const searchbar = document.getElementById('searchbar')
+  const searchbar = document.getElementById('searchbar') as HTMLInputElement
 
   const menu = document.getElementById('menu')
   menu?.classList.replace('menu-container-home', 'menu-container')
