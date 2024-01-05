@@ -84,7 +84,7 @@ class apiService {
     }
   }
 
-  static async getEpisode (id: number) { // a través de la función getproductos por id, mostramos el producto con el id recibido
+  static async getEpisode (id: string) { // a través de la función getproductos por id, mostramos el producto con el id recibido
     return (await axios.get(BASE_URL + '/episode/' + id)).data
   }
 }
