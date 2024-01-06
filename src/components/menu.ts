@@ -1,8 +1,11 @@
 let count = 0
 
 export function handleSection (event: MouseEvent) {
-  const button = event.target as HTMLButtonElement
-  const buttonText = button.name
+  const button = event.target
+  let buttonText
+  if (button !== null && button instanceof HTMLButtonElement) {
+    buttonText = button.name
+  }
   const searchbar = document.getElementById('searchbar') as HTMLInputElement
 
   if (count < 1) {
@@ -24,7 +27,7 @@ export function handleSection (event: MouseEvent) {
   const locationSection = document.getElementById('locationSection')
   const locationPagination = document.getElementById('locationPagination')
 
-  if (buttonText === 'episodes') {
+  if (buttonText === 'episodes' && button instanceof HTMLButtonElement) {
     localStorage.setItem('category', 'episodes')
     searchbar.placeholder = '🔍 Episode Id (number)'
     searchbar?.classList.replace('hide-section', 'show-section')

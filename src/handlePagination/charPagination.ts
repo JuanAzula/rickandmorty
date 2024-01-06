@@ -10,9 +10,11 @@ const enum CHARACTER {
 }
 export async function changeCharPage (page: number) {
   const handlePage = await apiService.getSpecificPageCharacters(page)
-  const charactersContainer = document.getElementById('characters') as HTMLDivElement
+  const charactersContainer = document.getElementById('characters')
 
-  charactersContainer.innerText = ''
+  if (charactersContainer !== null && charactersContainer instanceof HTMLDivElement) {
+    charactersContainer.innerText = ''
+  }
 
   await handlePage.forEach(async (character: any) => {
     const characterName = character[CHARACTER.NAME]

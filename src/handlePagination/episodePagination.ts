@@ -8,9 +8,11 @@ const enum EPISODE {
 export async function changeEpisodePage (page: number) {
   console.log('ep')
   const handlePage = await apiService.getSpecificPageEpisodes(page)
-  const episodesContainer = document.getElementById('episodes') as HTMLDivElement
+  const episodesContainer = document.getElementById('episodes')
 
-  episodesContainer.innerText = ''
+  if (episodesContainer !== null && episodesContainer instanceof HTMLDivElement) {
+    episodesContainer.innerText = ''
+  }
 
   await handlePage.forEach(async (episode: any) => {
     const episodeName = episode[EPISODE.NAME]

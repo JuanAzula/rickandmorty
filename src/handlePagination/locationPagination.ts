@@ -9,10 +9,11 @@ const enum LOCATION {
 
 export async function changeLocationPage (page: number) {
   const handlePage = await apiService.getSpecificPageLocations(page)
-  const locationsContainer = document.getElementById('locations') as HTMLDivElement
+  const locationsContainer = document.getElementById('locations')
 
-  locationsContainer.innerText = ''
-
+  if (locationsContainer !== null && locationsContainer instanceof HTMLDivElement) {
+    locationsContainer.innerText = ''
+  }
   for (const location of handlePage) {
     const locationName = location[LOCATION.NAME]
     const locationDimension = location[LOCATION.DIMENSION]
