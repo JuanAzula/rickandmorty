@@ -1,6 +1,7 @@
 export interface APIEpisodesResponse {
     info: Info
     results: Result[]
+    forEach: any
 }
 
 export interface Info {

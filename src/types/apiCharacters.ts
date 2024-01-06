@@ -1,6 +1,13 @@
 export interface APICharactersResponse {
     info: Info
     results: Result[]
+    forEach: any
+    getPage: GetPage
+}
+
+export interface GetPage {
+    getPage: (page: number) => void
+
 }
 
 export interface Info {

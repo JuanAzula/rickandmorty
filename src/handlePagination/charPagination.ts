@@ -1,4 +1,6 @@
+import { GetPage } from './../types/apiCharacters'
 import { apiService } from '../services/Api'
+import { GetPage } from '../types/apiCharacters'
 
 const enum CHARACTER {
   NAME = 'name',
@@ -8,7 +10,7 @@ const enum CHARACTER {
   ORIGIN = 'origin.name',
   IMAGE = 'image'
 }
-export async function changeCharPage (page: number) {
+export async function changeCharPage(page: number) {
   const handlePage = await apiService.getSpecificPageCharacters(page)
   const charactersContainer = document.getElementById('characters')
 
