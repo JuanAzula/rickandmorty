@@ -3,7 +3,33 @@ import { changeCharPage } from './handlePagination/charPagination'
 import { changeEpisodePage } from './handlePagination/episodePagination'
 import { changeLocationPage } from './handlePagination/locationPagination'
 import { handleSection } from './components/menu'
-import { searchFunction } from './searchbar'
+import { handleLogin } from './components/login'
+import { searchFunction } from './components/searchbar'
+
+// const user = window.localStorage.getItem('LoggedUser')
+// console.log(user)
+// if (user !== null) {
+//   const login = document.getElementById('login-container')
+//   login?.classList.replace('card', 'hide-menu')
+//   const menu = document.getElementById('menu')
+//   menu?.classList.replace('hide-menu', 'menu-container-home')
+// }
+
+// ///////// HANDLE LOGIN ///////
+
+const loginForm = document.getElementById('login-form')
+const usernameinput = document.getElementById('logusername') as HTMLInputElement
+const passwordinput = document.getElementById('logpassword') as HTMLInputElement
+
+if (loginForm !== null && loginForm instanceof HTMLFormElement) {
+  loginForm.addEventListener('submit', (event: Event) => {
+    event.preventDefault()
+    const username = usernameinput?.value
+    const password = passwordinput?.value
+    console.log(username, password)
+    handleLogin(event, username, password)
+  })
+}
 
 // ////// HANDLE MENU BUTTONS /////
 const buttons = document.querySelectorAll('#menu .button')

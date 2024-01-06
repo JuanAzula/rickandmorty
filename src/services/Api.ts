@@ -26,8 +26,13 @@ class apiService {
   }
 
   static async getCharacter (id: number) { // a través de la función getproductos por id, mostramos el producto con el id recibido
-    const response = await axios.get(BASE_URL + '/character/' + id)
-    return response.data
+    try {
+      const response = await axios.get(BASE_URL + '/character/' + id)
+      return response.data
+    } catch (err) {
+      alert('The character could not be obtained')
+      return []
+    }
   }
 
   static async getLocations () { // static para que se pueda llamar a la función getproductos sin estar dentro de la clase
@@ -35,7 +40,7 @@ class apiService {
       const response = await axios.get(BASE_URL + '/location') // recogemos la response del servidor
       return response.data // .data es un método de axios para pasar los productos a json
     } catch (err) {
-      alert('The characters could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
+      alert('The locations could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []
     }
   }
@@ -45,13 +50,18 @@ class apiService {
       const response = await axios.get(BASE_URL + '/location' + '?page=' + page) // recogemos la response del servidor
       return response.data.results // .data es un método de axios para pasar los productos a json
     } catch (err) {
-      alert('The characters could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
+      alert('The locations could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []
     }
   }
 
   static async getLocation (id: number) { // a través de la función getproductos por id, mostramos el producto con el id recibido
-    return (await axios.get(BASE_URL + '/location/' + id)).data
+    try {
+      return (await axios.get(BASE_URL + '/location/' + id)).data
+    } catch (err) {
+      alert('The location could not be obtained')
+      return []
+    }
   }
 
   static async getLocationResidents (url: string) {
@@ -59,7 +69,7 @@ class apiService {
       const response = await axios.get(url) // recogemos la response del servidor
       return response.data // .data es un método de axios para pasar los productos a json
     } catch (err) {
-      alert('The characters could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
+      alert('The location residents could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []
     }
   }
@@ -69,7 +79,7 @@ class apiService {
       const response = await axios.get(BASE_URL + '/episode') // recogemos la response del servidor
       return response.data // .data es un método de axios para pasar los productos a json
     } catch (err) {
-      alert('The characters could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
+      alert('The episodes could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []
     }
   }
@@ -79,13 +89,18 @@ class apiService {
       const response = await axios.get(BASE_URL + '/episode' + '?page=' + page) // recogemos la response del servidor
       return response.data.results // .data es un método de axios para pasar los productos a json
     } catch (err) {
-      alert('The characters could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
+      alert('The episodes could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []
     }
   }
 
   static async getEpisode (id: string) { // a través de la función getproductos por id, mostramos el producto con el id recibido
-    return (await axios.get(BASE_URL + '/episode/' + id)).data
+    try {
+      return (await axios.get(BASE_URL + '/episode/' + id)).data
+    } catch (err) {
+      alert('The episode could not be obtained')
+      return []
+    }
   }
 }
 

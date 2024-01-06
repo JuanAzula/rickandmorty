@@ -1,4 +1,4 @@
-import { apiService } from './services/Api'
+import { apiService } from '../services/Api'
 
 export async function searchFunction (searchValue: string) {
   const category = localStorage.getItem('category')

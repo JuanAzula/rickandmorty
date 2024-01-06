@@ -10,7 +10,7 @@ export function handleSection (event: MouseEvent) {
 
   if (count < 1) {
     const audio = new Audio('./RickandMorty.mp3')
-    audio.volume = 0.3
+    audio.volume = 0.04
     audio.play()
     count++
   }
