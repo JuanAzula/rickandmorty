@@ -14,6 +14,12 @@ const handleLogin = async (event: Event, username: string, password: string) => 
       window.localStorage.setItem(
         'LoggedUser', JSON.stringify(user)
       )
+      // if (count < 1) {
+      const audio = new Audio('./RickandMorty.mp3')
+      audio.volume = 0.04
+      audio.play()
+      //   count++
+      // }
       const login = document.getElementById('login-container')
       login?.classList.replace('card', 'hide-menu')
 

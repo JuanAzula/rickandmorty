@@ -1,5 +1,3 @@
-let count = 0
-
 export function handleSection (event: MouseEvent) {
   const button = event.target
   let buttonText
@@ -7,13 +5,6 @@ export function handleSection (event: MouseEvent) {
     buttonText = button.name
   }
   const searchbar = document.getElementById('searchbar') as HTMLInputElement
-
-  if (count < 1) {
-    const audio = new Audio('./RickandMorty.mp3')
-    audio.volume = 0.04
-    audio.play()
-    count++
-  }
 
   const menu = document.getElementById('menu')
   menu?.classList.replace('menu-container-home', 'menu-container')
