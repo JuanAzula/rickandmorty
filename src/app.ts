@@ -5,10 +5,6 @@ import { changeLocationPage } from './handlePagination/locationPagination'
 import { handleSection } from './components/menu'
 import { searchFunction } from './searchbar'
 
-// const audio = new Audio('./RickandMorty.mp3')
-// audio.volume = 0.4
-// audio.play()
-
 // ////// HANDLE MENU BUTTONS /////
 const buttons = document.querySelectorAll('#menu .button')
 
