@@ -6,14 +6,14 @@ import { handleSection } from './components/menu'
 import { handleLogin } from './components/login'
 import { searchFunction } from './components/searchbar'
 
-// const user = window.localStorage.getItem('LoggedUser')
-// console.log(user)
-// if (user !== null) {
-//   const login = document.getElementById('login-container')
-//   login?.classList.replace('card', 'hide-menu')
-//   const menu = document.getElementById('menu')
-//   menu?.classList.replace('hide-menu', 'menu-container-home')
-// }
+const user = window.localStorage.getItem('LoggedUser')
+console.log(user)
+if (user !== null) {
+  const login = document.getElementById('login-container')
+  login?.classList.replace('card', 'hide-menu')
+  const menu = document.getElementById('menu')
+  menu?.classList.replace('hide-menu', 'menu-container-home')
+}
 
 // ///////// HANDLE LOGIN ///////
 

@@ -105,6 +105,16 @@ class apiService {
       return []
     }
   }
+
+  static async getEpisodeCharacters (url: string) {
+    try {
+      const response = await axios.get(url) // recogemos la response del servidor
+      return response.data as APICharactersResponse // .data es un método de axios para pasar los productos a json
+    } catch (err) {
+      alert('The episode characters could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
+      return []
+    }
+  }
 }
 
 export { apiService }

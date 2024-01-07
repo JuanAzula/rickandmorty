@@ -130,9 +130,9 @@ body {
     flex-direction: column;
     margin-left: 2%;
     margin-right: 2%;
-    width: 16%;
+    width: 26%;
     margin-bottom: 5%;
-    height: 62%;
+    height: 100%;
     padding: 10px;
 }
 
@@ -149,7 +149,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 70%;
+    width: 100%;
 }
 
 
@@ -500,7 +500,7 @@ height: 1rem;
 
 .myCardEpisode {
     background-color: transparent;
-    height: 254px;
+    height: 354px;
     perspective: 1000px;
 }
 
@@ -515,8 +515,8 @@ height: 1rem;
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+    /* transition: transform 0.8s; */
+    /* transform-style: preserve-3d; */
     /* cursor: pointer; */
 
 
@@ -526,8 +526,8 @@ height: 1rem;
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
+    /* backface-visibility: hidden; */
     border: 1px solid rgba(255, 255, 255, 0.8);
     background: linear-gradient(-45deg, #1cff20 0%, #40c9ff 100%);
     border-radius: 1rem;
@@ -717,7 +717,7 @@ height: 1rem;
     }
 
     .myCardEpisode {
-        height: 234px;
+        height: 410px;
     }
 
     .myCardLocation {
@@ -730,8 +730,8 @@ height: 1rem;
     }
 
     #episodesSection .episodes div {
-        width: 25%;
-        height: 48%;
+        width: 26%;
+        height: 100%;
     }
 
     #locationSection .locations div {
@@ -815,8 +815,8 @@ height: 1rem;
     }
 
     #episodesSection .episodes div {
-        width: 35%;
-        height: 68%;
+        width: 41%;
+        height: 92%;
     }
 
     #locationSection .locations div {

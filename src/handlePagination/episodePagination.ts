@@ -19,7 +19,22 @@ export async function changeEpisodePage (page: number) {
     const episodeName = episode[EPISODE.NAME]
     const episodeDate = episode[EPISODE.AIR_DATE]
     const episodeId = episode[EPISODE.EPISODE]
-    console.log(episodeName)
+    const episodeCharactersUrl = episode.characters
+    const episodeCharactersTotal: any[] = []
+
+    for (const url of episodeCharactersUrl) {
+      if (url !== undefined) {
+        const episodeCharacters = await apiService.getEpisodeCharacters(url)
+        episodeCharactersTotal.push(episodeCharacters)
+      }
+    }
+
+    let episodeCharactersTotalFormat: string = ''
+    for (const names of episodeCharactersTotal) {
+      episodeCharactersTotalFormat += names.name + ', '
+    }
+    episodeCharactersTotalFormat = episodeCharactersTotalFormat.slice(0, -2) // Eliminar la coma extra al final
+
     const nameElement = document.createElement('h3')
     nameElement.textContent = episodeName
 
@@ -29,13 +44,19 @@ export async function changeEpisodePage (page: number) {
     const idElement = document.createElement('h3')
     idElement.textContent = episodeId
 
+    const charactersElement = document.createElement('p')
+    charactersElement.textContent = 'Characters: ' + episodeCharactersTotalFormat
+
     const singularChar = document.createElement('div')
+
+    charactersElement?.classList.add('location-residents')
 
     singularChar?.classList.add('episode')
     singularChar?.classList.add('innerCardEpisode')
     singularChar?.appendChild(nameElement)
     singularChar?.appendChild(idElement)
     singularChar?.appendChild(dateElement)
+    singularChar?.appendChild(charactersElement)
     episodesContainer?.appendChild(singularChar)
   })
 }

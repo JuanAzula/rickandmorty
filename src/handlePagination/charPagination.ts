@@ -23,6 +23,7 @@ export async function changeCharPage (page: number) {
     const charSpecies = character[CHARACTER.SPECIES]
     const charGender = character[CHARACTER.GENDER]
     const charOrigin = character[CHARACTER.ORIGIN].name
+    const charEpisodes = character.episode
     const characterImage = character[CHARACTER.IMAGE]
 
     const nameCharElement = document.createElement('h3')
