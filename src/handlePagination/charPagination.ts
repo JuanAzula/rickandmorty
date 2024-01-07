@@ -1,16 +1,15 @@
-import { GetPage } from './../types/apiCharacters'
+import { type ResultCharacters } from './../types/apiCharacters'
 import { apiService } from '../services/Api'
-import { GetPage } from '../types/apiCharacters'
 
 const enum CHARACTER {
   NAME = 'name',
   STATUS = 'status',
   SPECIES = 'species',
   GENDER = 'gender',
-  ORIGIN = 'origin.name',
+  ORIGIN = 'origin',
   IMAGE = 'image'
 }
-export async function changeCharPage(page: number) {
+export async function changeCharPage (page: number) {
   const handlePage = await apiService.getSpecificPageCharacters(page)
   const charactersContainer = document.getElementById('characters')
 
@@ -18,12 +17,12 @@ export async function changeCharPage(page: number) {
     charactersContainer.innerText = ''
   }
 
-  await handlePage.forEach(async (character: any) => {
+  await handlePage.forEach(async (character: ResultCharacters) => {
     const characterName = character[CHARACTER.NAME]
     const charStatus = character[CHARACTER.STATUS]
     const charSpecies = character[CHARACTER.SPECIES]
     const charGender = character[CHARACTER.GENDER]
-    const charOrigin = character[CHARACTER.ORIGIN]
+    const charOrigin = character[CHARACTER.ORIGIN].name
     const characterImage = character[CHARACTER.IMAGE]
 
     const nameCharElement = document.createElement('h3')

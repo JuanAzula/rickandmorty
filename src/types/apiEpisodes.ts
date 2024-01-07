@@ -1,22 +1,22 @@
 export interface APIEpisodesResponse {
-    info: Info
-    results: Result[]
-    forEach: any
+  info: InfoEpisodes
+  results: ResultEpisodes[]
+  forEach: any
 }
 
-export interface Info {
-    count: number
-    pages: number
-    next: string
-    prev: null
+export interface InfoEpisodes {
+  count: number
+  pages: number
+  next: string
+  prev: null
 }
 
-export interface Result {
-    id: number
-    name: string
-    air_date: string
-    episode: string
-    characters: string[]
-    url: string
-    created: Date
+export interface ResultEpisodes {
+  id: number
+  name: string
+  air_date: string
+  episode: string
+  characters: string[]
+  url: string
+  created: Date
 }

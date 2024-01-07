@@ -1,22 +1,22 @@
 export interface APILocationsResponse {
-    info: Info
-    results: Result[]
-    forEach: any
+  info: InfoLocations
+  results: ResultLocations[]
+  forEach: any
 }
 
-export interface Info {
-    count: number
-    pages: number
-    next: string
-    prev: null
+export interface InfoLocations {
+  count: number
+  pages: number
+  next: string
+  prev: null
 }
 
-export interface Result {
-    id: number
-    name: string
-    type: string
-    dimension: string
-    residents: string[]
-    url: string
-    created: Date
+export interface ResultLocations {
+  id: number
+  name: string
+  type: string
+  dimension: string
+  residents: string[]
+  url: string
+  created: Date
 }

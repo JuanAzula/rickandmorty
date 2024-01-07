@@ -1,4 +1,5 @@
 import { apiService } from '../services/Api'
+import { type ResultLocations } from '../types/apiLocations'
 
 const enum LOCATION {
   NAME = 'name',
@@ -8,13 +9,14 @@ const enum LOCATION {
 }
 
 export async function changeLocationPage (page: number) {
-  const handlePage = await apiService.getSpecificPageLocations(page)
+  const handlePage = await apiService.getSpecificPageLocations(page) as any
   const locationsContainer = document.getElementById('locations')
 
   if (locationsContainer !== null && locationsContainer instanceof HTMLDivElement) {
     locationsContainer.innerText = ''
   }
-  for (const location of handlePage) {
+  let location: ResultLocations
+  for (location of handlePage) {
     const locationName = location[LOCATION.NAME]
     const locationDimension = location[LOCATION.DIMENSION]
     const locationType = location[LOCATION.TYPE]

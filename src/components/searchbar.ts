@@ -1,4 +1,28 @@
 import { apiService } from '../services/Api'
+import { type ResultCharacters } from '../types/apiCharacters'
+import { type ResultLocations } from '../types/apiLocations'
+
+const enum CHARACTER {
+  NAME = 'name',
+  STATUS = 'status',
+  SPECIES = 'species',
+  GENDER = 'gender',
+  ORIGIN = 'origin',
+  IMAGE = 'image'
+}
+
+const enum EPISODE {
+  NAME = 'name',
+  AIR_DATE = 'air_date',
+  EPISODE = 'episode'
+}
+
+const enum LOCATION {
+  NAME = 'name',
+  DIMENSION = 'dimension',
+  TYPE = 'type',
+  RESIDENTS = 'residents'
+}
 
 export async function searchFunction (searchValue: string) {
   const category = localStorage.getItem('category')
@@ -22,13 +46,13 @@ export async function searchFunction (searchValue: string) {
       charactersContainer.innerText = ''
     }
     for (const characters of totalCharacters) {
-      characters.forEach(async (character: any) => {
-        const characterName = character.name
-        const charStatus = character.status
-        const charSpecies = character.species
-        const charGender = character.gender
-        const charOrigin = character.origin.name
-        const characterImage = character.image
+      characters.forEach(async (character: ResultCharacters) => {
+        const characterName = character[CHARACTER.NAME]
+        const charStatus = character[CHARACTER.STATUS]
+        const charSpecies = character[CHARACTER.SPECIES]
+        const charGender = character[CHARACTER.GENDER]
+        const charOrigin = character[CHARACTER.ORIGIN].name
+        const characterImage = character[CHARACTER.IMAGE]
 
         const characterNameLower: string = characterName.toLowerCase()
         const searchValueLower = searchString.toLowerCase()
@@ -67,16 +91,16 @@ export async function searchFunction (searchValue: string) {
       })
     }
   } else if (category === 'episodes') {
-    const episode = await apiService.getEpisode(searchValue)
+    const episode: any = await apiService.getEpisode(searchValue)
     const episodesContainer = document.getElementById('episodes')
 
     if (episodesContainer !== null && episodesContainer instanceof HTMLDivElement) {
       episodesContainer.innerText = ''
     }
 
-    const episodeName = episode.name
-    const episodeDate = episode.air_date
-    const episodeId = episode.episode
+    const episodeName = episode[EPISODE.NAME]
+    const episodeDate = episode[EPISODE.AIR_DATE]
+    const episodeId = episode[EPISODE.EPISODE]
 
     const nameElement = document.createElement('h3')
     nameElement.textContent = episodeName
@@ -109,11 +133,11 @@ export async function searchFunction (searchValue: string) {
     }
 
     for (const locations of totalLocations) {
-      locations.forEach(async (location: any) => {
-        const locationName = location.name
-        const locationDimension = location.dimension
-        const locationType = location.type
-        const locationResidentsUrl = location.residents
+      locations.forEach(async (location: ResultLocations) => {
+        const locationName = location[LOCATION.NAME]
+        const locationDimension = location[LOCATION.DIMENSION]
+        const locationType = location[LOCATION.TYPE]
+        const locationResidentsUrl = location[LOCATION.RESIDENTS]
         const locationResidentsTotal: any[] = []
 
         if (locationsContainer !== null && locationsContainer instanceof HTMLDivElement) {

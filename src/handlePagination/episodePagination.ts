@@ -1,4 +1,5 @@
 import { apiService } from '../services/Api'
+import { type ResultEpisodes } from '../types/apiEpisodes'
 
 const enum EPISODE {
   NAME = 'name',
@@ -14,7 +15,7 @@ export async function changeEpisodePage (page: number) {
     episodesContainer.innerText = ''
   }
 
-  await handlePage.forEach(async (episode: any) => {
+  await handlePage.forEach(async (episode: ResultEpisodes) => {
     const episodeName = episode[EPISODE.NAME]
     const episodeDate = episode[EPISODE.AIR_DATE]
     const episodeId = episode[EPISODE.EPISODE]
