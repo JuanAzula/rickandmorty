@@ -1,7 +1,7 @@
 export interface APICharactersResponse {
   info: InfoCharacters
   results: ResultCharacters[]
-  forEach: any
+  // forEach: any
 }
 
 export interface InfoCharacters {
@@ -46,4 +46,13 @@ export enum Status {
   Alive = 'Alive',
   Dead = 'Dead',
   Unknown = 'unknown',
+}
+
+export enum Characterproperties {
+  NAME = 'name',
+  STATUS = 'status',
+  SPECIES = 'species',
+  GENDER = 'gender',
+  ORIGIN = 'origin',
+  IMAGE = 'image'
 }

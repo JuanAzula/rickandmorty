@@ -1,7 +1,6 @@
 export interface APIEpisodesResponse {
   info: InfoEpisodes
   results: ResultEpisodes[]
-  forEach: any
 }
 
 export interface InfoEpisodes {

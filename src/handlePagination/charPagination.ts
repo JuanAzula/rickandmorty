@@ -1,4 +1,4 @@
-import { type ResultCharacters } from './../types/apiCharacters'
+import { type ResultCharacters } from '../types/charactersType'
 import { apiService } from '../services/Api'
 
 const enum CHARACTER {
@@ -17,13 +17,12 @@ export async function changeCharPage (page: number) {
     charactersContainer.innerText = ''
   }
 
-  await handlePage.forEach(async (character: ResultCharacters) => {
+  handlePage.forEach(async (character: ResultCharacters) => {
     const characterName = character[CHARACTER.NAME]
     const charStatus = character[CHARACTER.STATUS]
     const charSpecies = character[CHARACTER.SPECIES]
     const charGender = character[CHARACTER.GENDER]
     const charOrigin = character[CHARACTER.ORIGIN].name
-    const charEpisodes = character.episode
     const characterImage = character[CHARACTER.IMAGE]
 
     const nameCharElement = document.createElement('h3')

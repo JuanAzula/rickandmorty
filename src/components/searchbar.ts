@@ -1,6 +1,6 @@
 import { apiService } from '../services/Api'
-import { type ResultCharacters } from '../types/apiCharacters'
-import { type ResultLocations } from '../types/apiLocations'
+import { type ResultCharacters } from '../types/charactersType'
+import { type ResultLocations } from '../types/locationsType'
 
 const enum CHARACTER {
   NAME = 'name',

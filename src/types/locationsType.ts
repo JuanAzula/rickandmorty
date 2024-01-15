@@ -1,7 +1,6 @@
 export interface APILocationsResponse {
   info: InfoLocations
   results: ResultLocations[]
-  forEach: any
 }
 
 export interface InfoLocations {

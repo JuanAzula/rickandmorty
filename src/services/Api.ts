@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { type APICharactersResponse } from '../types/apiCharacters'
-import { type APILocationsResponse } from '../types/apiLocations'
-import { type APIEpisodesResponse } from '../types/apiEpisodes'
+import { type APICharactersResponse } from '../types/charactersType'
+import { type APILocationsResponse } from '../types/locationsType'
+import { type APIEpisodesResponse } from '../types/episodesType'
 
 // Definimos de qué ruta recogemos los productos
 const BASE_URL = 'https://rickandmortyapi.com/api'
@@ -21,7 +21,7 @@ class apiService {
   static async getSpecificPageCharacters (page: number) { // static para que se pueda llamar a la función getproductos sin estar dentro de la clase
     try {
       const response = await axios.get(BASE_URL + '/character' + '?page=' + page) // recogemos la response del servidor
-      return response.data.results as APICharactersResponse // .data es un método de axios para pasar los productos a json
+      return response.data.results as APICharactersResponse['results'] // .data es un método de axios para pasar los productos a json
     } catch (err) {
       alert('The characters could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []
@@ -51,7 +51,7 @@ class apiService {
   static async getSpecificPageLocations (page: number) { // static para que se pueda llamar a la función getproductos sin estar dentro de la clase
     try {
       const response = await axios.get(BASE_URL + '/location' + '?page=' + page) // recogemos la response del servidor
-      return response.data.results as APILocationsResponse // .data es un método de axios para pasar los productos a json
+      return response.data.results as APILocationsResponse['results'] // .data es un método de axios para pasar los productos a json
     } catch (err) {
       alert('The locations could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []
@@ -90,7 +90,7 @@ class apiService {
   static async getSpecificPageEpisodes (page: number) { // static para que se pueda llamar a la función getproductos sin estar dentro de la clase
     try {
       const response = await axios.get(BASE_URL + '/episode' + '?page=' + page) // recogemos la response del servidor
-      return response.data.results as APIEpisodesResponse // .data es un método de axios para pasar los productos a json
+      return response.data.results as APIEpisodesResponse['results'] // .data es un método de axios para pasar los productos a json
     } catch (err) {
       alert('The episodes could not be obtaineds') // alerta de error preparada en caso de no haber obtenido los productos
       return []

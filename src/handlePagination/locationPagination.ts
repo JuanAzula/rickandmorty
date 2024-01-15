@@ -1,5 +1,5 @@
 import { apiService } from '../services/Api'
-import { type ResultLocations } from '../types/apiLocations'
+import { type ResultLocations } from '../types/locationsType'
 
 const enum LOCATION {
   NAME = 'name',
