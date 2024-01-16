@@ -7,7 +7,6 @@ import { handleLogin } from './components/login'
 import { searchFunction } from './components/searchbar'
 
 const user = window.localStorage.getItem('LoggedUser')
-console.log(user)
 if (user !== null) {
   const login = document.getElementById('login-container')
   login?.classList.replace('card', 'hide-menu')
@@ -26,7 +25,6 @@ if (loginForm !== null && loginForm instanceof HTMLFormElement) {
     event.preventDefault()
     const username = usernameinput?.value
     const password = passwordinput?.value
-    console.log(username, password)
     handleLogin(event, username, password)
   })
 }
@@ -73,6 +71,5 @@ const searchbar = document.getElementById('searchbar')
 
 searchbar?.addEventListener('keyup', function (event) {
   const searchValue = (event.target as HTMLInputElement).value
-  console.log(searchValue)
   searchFunction(searchValue)
 })

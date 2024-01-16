@@ -36,8 +36,6 @@ export async function changeLocationPage (page: number) {
     }
     locationResidentsNameTotalFormat = locationResidentsNameTotalFormat.slice(0, -2) // Eliminar la coma extra al final
 
-    console.log(locationResidentsNameTotalFormat)
-
     const locationNameElement = document.createElement('h3')
     locationNameElement.textContent = locationName
 

@@ -40,8 +40,8 @@ export async function searchFunction (searchValue: string) {
       character = await apiService.getSpecificPageCharacters(i)
       totalCharacters.push(character)
     }
+
     const charactersContainer = document.getElementById('characters')
-    // console.log(character)
     if (charactersContainer !== null && charactersContainer instanceof HTMLDivElement) {
       charactersContainer.innerText = ''
     }

@@ -7,7 +7,6 @@ const enum EPISODE {
   EPISODE = 'episode'
 }
 export async function changeEpisodePage (page: number) {
-  console.log('ep')
   const handlePage = await apiService.getSpecificPageEpisodes(page)
   const episodesContainer = document.getElementById('episodes')
 

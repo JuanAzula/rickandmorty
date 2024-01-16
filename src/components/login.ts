@@ -2,8 +2,6 @@ import LoginService from '../services/LoginService'
 
 const handleLogin = async (event: Event, username: string, password: string) => {
   event.preventDefault()
-  console.log('THIS IS SUBMIT')
-  console.log(username, password)
   try {
     const user = await LoginService.LoginUser({
       username,
