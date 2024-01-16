@@ -153,7 +153,6 @@ body {
 }
 
 
-
 /*  /////////////////// LOCATION //////////////// */
 #locationSection .locations div {
 
@@ -177,6 +176,7 @@ body {
 
 .location-residents {
     font-size: x-small;
+    text-wrap: pretty;
 }
 
 
@@ -234,7 +234,14 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 1.4rem;
+    text-wrap: balance;
     /* margin-top: 15px; */
+}
+
+.character p {
+    font-size: 1rem;
+    font-weight: 500;
+    text-wrap: pretty;
 }
 
 
