@@ -14,7 +14,7 @@ body {
     display: block;
 }
 
-.hide-menu {
+.menu--hide {
     display: none;
 }
 
@@ -39,12 +39,12 @@ body {
     z-index: 999;
 }
 
-#login-form {
+#card__form {
     width: 40%;
 }
 
 /*Inputs*/
-.field {
+.card__form__field {
     margin-top: .5rem;
     display: flex;
     align-items: center;
@@ -61,7 +61,7 @@ body {
     fill: #ffeba7;
 }
 
-.input-field {
+.input-card__form__field {
     background: none;
     border: none;
     outline: none;
@@ -70,7 +70,7 @@ body {
 }
 
 /*Text*/
-.title {
+.card__title {
     margin-bottom: 1rem;
     font-size: 1.5em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -79,7 +79,7 @@ body {
 }
 
 /*Buttons*/
-.btn {
+.button {
     margin: 1rem;
     border: none;
     border-radius: 4px;
@@ -93,7 +93,7 @@ body {
     transition: all .3s ease-in-out;
 }
 
-.btn-link {
+.button--link {
     color: #f5f5f5;
     display: block;
     font-size: .75em;
@@ -101,18 +101,18 @@ body {
 }
 
 /*Hover & focus*/
-.field input:focus::placeholder {
+.card__form__field input:focus::placeholder {
     opacity: 0;
     transition: opacity .3s;
 }
 
-.btn:hover {
+.button:hover {
     background-color: #439553;
     color: #ffeba7;
     box-shadow: 0 8px 24px 0 rgb(16 39 112 / 20%);
 }
 
-.btn-link:hover {
+.button--link:hover {
     color: #ffeba7;
 }
 
@@ -307,7 +307,7 @@ body {
     z-index: 999;
 }
 
-.menu-container-home .menu-element {
+.menu-container-home .menu {
     display: flex;
     width: 100%;
     height: 37%;
@@ -316,7 +316,7 @@ body {
     border-radius: 10px;
 }
 
-.menu-container .menu-element {
+.menu-container .menu {
     display: flex;
     width: 25%;
     height: 37%;
@@ -325,7 +325,7 @@ body {
     border-radius: 10px;
 }
 
-.button {
+.menu__button {
     outline: 0 !important;
     border: 0 !important;
     width: 40px;
@@ -341,11 +341,11 @@ body {
     z-index: 999;
 }
 
-.button svg {
+.menu__button svg {
     pointer-events: none;
 }
 
-.tooltip {
+.menu__button--tooltip {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -359,11 +359,11 @@ body {
     transition: visibility 0s 1s;
 }
 
-.button:hover {
+.menu__button:hover {
     transform: translateY(-3px);
 }
 
-.button:hover .tooltip {
+.menu__button:hover .menu__button--tooltip {
     visibility: visible;
     opacity: 1;
     /* opacity: 1; */
@@ -442,7 +442,7 @@ body {
 
 
 /* ////////////////////////////// SEARCHBAR /////////////////*/
-.searchbar-container {
+.searchbar {
     display: flex;
     line-height: 28px;
     align-items: center;
@@ -685,7 +685,7 @@ height: 1rem;
         height: 92%;
     }
 
-    #login-form {
+    #card__form {
         width: 50%;
     }
 }
@@ -779,7 +779,7 @@ height: 1rem;
         font-size: 20px;
     }
 
-    .searchbar-container {
+    .searchbar {
         top: 33%;
         margin-bottom: 35px;
     }
@@ -790,7 +790,7 @@ height: 1rem;
         height: 2.2rem;
     }
 
-    #login-form {
+    #card__form {
         width: 60%;
     }
 }
@@ -808,7 +808,7 @@ height: 1rem;
         top: 8%;
     }
 
-    .searchbar-container {
+    .searchbar {
         top: 22%;
         width: 100%;
     }
@@ -851,11 +851,11 @@ height: 1rem;
         height: 15%;
     }
 
-    .menu-container .menu-element {
+    .menu-container .menu {
         width: 38%;
     }
 
-    #login-form {
+    #card__form {
         width: 70%;
     }
 }

@@ -13,46 +13,46 @@
     <!-- /////////////////////// LOGIN -->
 
     <div class="card" id="login-container">
-      <h4 class="title">Log In!</h4>
-      <form id="login-form">
-        <div class="field">
+      <h4 class="card__title">Log In!</h4>
+      <form id="card__form">
+        <div class="card__form__field">
           <svg class="input-icon" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z">
             </path>
           </svg>
-          <input autocomplete="off" id="logusername" placeholder="Username" class="input-field" name="logemail"
-            type="username">
+          <input autocomplete="off" id="logusername" placeholder="Username" class="input-card__form__field"
+            name="logemail" type="username">
         </div>
-        <div class="field">
+        <div class="card__form__field">
           <svg class="input-icon" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
             </path>
           </svg>
-          <input autocomplete="off" id="logpassword" placeholder="Password" class="input-field" name="logpass"
-            type="password">
+          <input autocomplete="off" id="logpassword" placeholder="Password" class="input-card__form__field"
+            name="logpass" type="password">
         </div>
-        <button class="btn" type="submit">Login</button>
-        <a href="#" class="btn-link">Forgot your password?</a>
+        <button class="button" type="submit">Login</button>
+        <a href="#" class="button--link">Forgot your password?</a>
       </form>
     </div>
 
 
     <!-- /////////////////////// MENU -->
-    <main id="menu" class="hide-menu">
-      <div class="menu-element">
-        <button class="button" name="episodes">
+    <main id="menu" class="menu--hide">
+      <div class="menu">
+        <button class="menu__button" name="episodes">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="4em" viewBox="0 0 24 24" stroke-width="1"
             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" />
             <path d="M10 9l5 3l-5 3z" />
           </svg>
-          <span class="tooltip">Episodes</span>
+          <span class="menu__button--tooltip">Episodes</span>
         </button>
 
-        <button class="button" name="characters">
+        <button class="menu__button" name="characters">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="4em"
             viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
             stroke-linejoin="round">
@@ -62,11 +62,11 @@
             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
           </svg>
-          <span class="tooltip">Characters</span>
+          <span class="menu__button--tooltip">Characters</span>
 
         </button>
 
-        <button class="button" name="locations">
+        <button class="menu__button" name="locations">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin-2" width="4em"
             viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
             stroke-linejoin="round">
@@ -78,7 +78,7 @@
               d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z" />
             <path d="M19 18v.01" />
           </svg>
-          <span class="tooltip">Locations</span>
+          <span class="menu__button--tooltip">Locations</span>
         </button>
       </div>
     </main>
@@ -90,7 +90,7 @@
 
 
     <!-- ///////////////////////// SEARCHBAR //////////77 -->
-    <div class="searchbar-container">
+    <div class="searchbar">
       <input id="searchbar" placeholder="🔍 Search by id" type="search" class="input hide-section">
     </div>
 
