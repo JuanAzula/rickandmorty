@@ -7,7 +7,7 @@ export function handleSection (event: MouseEvent) {
   const searchbar = document.getElementById('searchbar') as HTMLInputElement
 
   const menu = document.getElementById('menu')
-  menu?.classList.replace('menu-container-home', 'menu-container')
+  menu?.classList.replace('menu-container--home', 'menu-container')
 
   const episodeSection = document.getElementById('episodesSection')
   const episodePagination = document.getElementById('episodesPagination')

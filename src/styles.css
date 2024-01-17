@@ -276,7 +276,7 @@ body {
 
 
 /* /////////////////////// MENU  /////////////////////////////////////////7*/
-.menu-container-home {
+.menu-container--home {
     position: fixed;
     margin-left: 24.5%;
     top: 48%;
@@ -307,7 +307,7 @@ body {
     z-index: 999;
 }
 
-.menu-container-home .menu {
+.menu-container--home .menu {
     display: flex;
     width: 100%;
     height: 37%;
@@ -846,7 +846,7 @@ height: 1rem;
         font-size: 12px;
     }
 
-    .menu-container-home {
+    .menu-container--home {
         top: 35%;
         height: 15%;
     }

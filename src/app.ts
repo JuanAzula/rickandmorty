@@ -3,31 +3,7 @@ import { changeCharPage } from './handlePagination/charPagination'
 import { changeEpisodePage } from './handlePagination/episodePagination'
 import { changeLocationPage } from './handlePagination/locationPagination'
 import { handleSection } from './components/menu'
-import { handleLogin } from './components/login'
 import { searchFunction } from './components/searchbar'
-
-const user = window.localStorage.getItem('LoggedUser')
-if (user !== null) {
-  const login = document.getElementById('login-container')
-  login?.classList.replace('card', 'menu--hide')
-  const menu = document.getElementById('menu')
-  menu?.classList.replace('menu--hide', 'menu-container-home')
-}
-
-// ///////// HANDLE LOGIN ///////
-
-const loginForm = document.getElementById('card__form')
-const usernameinput = document.getElementById('logusername') as HTMLInputElement
-const passwordinput = document.getElementById('logpassword') as HTMLInputElement
-
-if (loginForm !== null && loginForm instanceof HTMLFormElement) {
-  loginForm.addEventListener('submit', (event: Event) => {
-    event.preventDefault()
-    const username = usernameinput?.value
-    const password = passwordinput?.value
-    handleLogin(event, username, password)
-  })
-}
 
 // ////// HANDLE MENU BUTTONS /////
 const buttons = document.querySelectorAll('#menu .menu__button')
