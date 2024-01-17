@@ -6,13 +6,13 @@ import { handleSection } from './components/menu'
 import { handleLogin } from './components/login'
 import { searchFunction } from './components/searchbar'
 
-const user = window.localStorage.getItem('LoggedUser')
-if (user !== null) {
-  const login = document.getElementById('login-container')
-  login?.classList.replace('card', 'menu--hide')
-  const menu = document.getElementById('menu')
-  menu?.classList.replace('menu--hide', 'menu-container-home')
-}
+// const user = window.localStorage.getItem('LoggedUser')
+// if (user !== null) {
+//   const login = document.getElementById('login-container')
+//   login?.classList.replace('card', 'menu--hide')
+//   const menu = document.getElementById('menu')
+//   menu?.classList.replace('menu--hide', 'menu-container--home')
+// }
 
 // ///////// HANDLE LOGIN ///////
 

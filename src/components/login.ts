@@ -22,7 +22,7 @@ const handleLogin = async (event: Event, username: string, password: string) => 
       login?.classList.replace('card', 'menu--hide')
 
       const menu = document.getElementById('menu')
-      menu?.classList.replace('menu--hide', 'menu-container-home')
+      menu?.classList.replace('menu--hide', 'menu-container--home')
     }
     // TokenService.setToken(user.token)
   } catch (e) {
